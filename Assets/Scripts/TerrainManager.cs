@@ -3,7 +3,9 @@ using System.Collections;
 
 public class TerrainManager : MonoBehaviour {
     // Number of terrain pieces that can exist at once.
-    private const int maxTerrainPieces = 4;
+    private const int MAX_TERRAIN_PIECES = 4;
+    private const int NORMAL_PIECE_WIDTH = 4;
+    private const int WIDE_PIECE_WIDTH = 8;
 
     private TerrainData[] terrain;
     public int leftIndex;
@@ -17,13 +19,13 @@ public class TerrainManager : MonoBehaviour {
 
     void Start()
     {
-        terrain = new TerrainData[maxTerrainPieces];
+        terrain = new TerrainData[MAX_TERRAIN_PIECES];
         leftIndex = 0;
-        rightIndex = maxTerrainPieces - 1;
+        rightIndex = MAX_TERRAIN_PIECES - 1;
 
-        for (int i = 0; i < maxTerrainPieces; ++i)
+        for (int i = 0; i < MAX_TERRAIN_PIECES; ++i)
         {
-            GameObject newObject = Instantiate(Terrain_Prefabs[0], new Vector3(-6 + i * 8, 0, 0), Quaternion.identity) as GameObject;
+            GameObject newObject = Instantiate(Terrain_Prefabs[0], new Vector3(-6 + i * WIDE_PIECE_WIDTH, 0, 0), Quaternion.identity) as GameObject;
             terrain[i] = newObject.GetComponent<TerrainData>();
         }
     }
@@ -37,7 +39,7 @@ public class TerrainManager : MonoBehaviour {
         }
 
         // First move all the objects.
-        for (int i = 0; i < maxTerrainPieces; ++i)
+        for (int i = 0; i < MAX_TERRAIN_PIECES; ++i)
         {
             terrain[i].transform.position = new Vector3(terrain[i].transform.position.x - screenSpeed, terrain[i].transform.position.y, terrain[i].transform.position.z);
         }
@@ -51,8 +53,8 @@ public class TerrainManager : MonoBehaviour {
 
             terrain[leftIndex] = GenerateTerrainPiece();
 
-            leftIndex = (leftIndex + 1) % maxTerrainPieces;
-            rightIndex = (rightIndex + 1) % maxTerrainPieces;
+            leftIndex = (leftIndex + 1) % MAX_TERRAIN_PIECES;
+            rightIndex = (rightIndex + 1) % MAX_TERRAIN_PIECES;
 
         }
 	}
@@ -60,10 +62,10 @@ public class TerrainManager : MonoBehaviour {
     private TerrainData GenerateTerrainPiece()
     {
         // Width of left piece
-        int leftWidth = terrain[rightIndex].isLarge ? 4 : 2;
+        int leftWidth = terrain[rightIndex].isLarge ? WIDE_PIECE_WIDTH / 2 :  NORMAL_PIECE_WIDTH / 2;
 
         // Width of right piece (gonna put the random stuff in here)
-        int rightWidth = Terrain_Prefabs[0].GetComponent<TerrainData>().isLarge ? 4 : 2;
+        int rightWidth = Terrain_Prefabs[0].GetComponent<TerrainData>().isLarge ? WIDE_PIECE_WIDTH / 2 : NORMAL_PIECE_WIDTH / 2;
        
         Vector3 position = terrain[rightIndex].transform.position + new Vector3(leftWidth + rightWidth, 0, 0);
 
