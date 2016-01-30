@@ -28,6 +28,7 @@ GameObject:
   - 114: {fileID: 11407058}
   - 61: {fileID: 6154196}
   - 50: {fileID: 5012092}
+  - 114: {fileID: 11472380}
   m_Layer: 0
   m_Name: Runner
   m_TagString: Untagged
@@ -134,6 +135,55 @@ MonoBehaviour:
   MaxJumpTime: 0.3
   JumpPower: 12
   Gravity: 24
+  BaseX: 0
+  XResetSpeed: 0.5
+--- !u!114 &11472380
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 177038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 057f098f3afb18946ab9135104144bd6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ignoreOneWayPlatformsThisFrame: 0
+  _skinWidth: 0.02
+  platformMask:
+    serializedVersion: 2
+    m_Bits: 256
+  triggerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  oneWayPlatformMask:
+    serializedVersion: 2
+    m_Bits: 0
+  slopeLimit: 30
+  jumpingThreshold: 0.14
+  slopeSpeedMultiplier:
+    serializedVersion: 2
+    m_Curve:
+    - time: -90
+      value: 1.5
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 90
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  totalHorizontalRays: 8
+  totalVerticalRays: 4
 --- !u!198 &19823312
 ParticleSystem:
   m_ObjectHideFlags: 1
