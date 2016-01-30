@@ -42,9 +42,6 @@ public class GameManagerScript : MonoBehaviour {
             paused = true;
             GetComponent<Simon>().startSimon(10.0f);
             player.GetComponent<RunnerBehavior>().Paused = true;
-            GetComponent<TerrainManager>().isPaused = true;
-
-        
+            GetComponent<TerrainManager>().isPaused = true;     
     }
-   
 }
