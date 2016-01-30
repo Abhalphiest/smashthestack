@@ -3,7 +3,7 @@ using System.Collections;
 
 public class TerrainManager : MonoBehaviour {
     // Number of terrain pieces that can exist at once.
-    private const int MAX_TERRAIN_PIECES = 4;
+    private const int MAX_TERRAIN_PIECES = 8;
     private const int NORMAL_PIECE_WIDTH = 8;
     private const int WIDE_PIECE_WIDTH = 16;
 
@@ -18,6 +18,7 @@ public class TerrainManager : MonoBehaviour {
     public GameObject Simon_Terrain;
 
     private GameObject curr_Simon;
+    public int SimonSpacing = 25;
 
     private TerrainData[] Terrain_Prefabs_Data;
     public float screenSpeed = 0.5f;
@@ -26,7 +27,7 @@ public class TerrainManager : MonoBehaviour {
 
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("player");
+        player = GameObject.FindGameObjectWithTag("Player");
         terrainCounter = 0;
         // Setup the prefabs data
         Terrain_Prefabs_Data = new TerrainData[Terrain_Prefabs.Length];
@@ -69,7 +70,7 @@ public class TerrainManager : MonoBehaviour {
             terrain[i].transform.position = new Vector3(terrain[i].transform.position.x - screenSpeed, terrain[i].transform.position.y, terrain[i].transform.position.z);
         }
 
-        int leftBound = terrain[leftIndex].isLarge ? -17 : -13;
+        int leftBound = terrain[leftIndex].isLarge ? -17*2 : -13*2;
 
         // then check if the leftmost object
         if (terrain[leftIndex].transform.position.x < leftBound)
@@ -82,9 +83,10 @@ public class TerrainManager : MonoBehaviour {
             rightIndex = (rightIndex + 1) % MAX_TERRAIN_PIECES;
 
         }
-        if(curr_Simon != null && Mathf.Abs(curr_Simon.transform.position.x - 4 - player.transform.position.x) < .005)
+        if(curr_Simon != null && Mathf.Abs(curr_Simon.transform.position.x - 4 - player.transform.position.x) < 1)
         {
-            //send off signal
+            print("tried to pause");
+            GetComponent<GameManagerScript>().SetPause();
         }
 	}
 
@@ -101,7 +103,7 @@ public class TerrainManager : MonoBehaviour {
        
         Vector3 position = terrain[rightIndex].transform.position + new Vector3(leftWidth + rightWidth, 0, 0);
         GameObject newPiece;
-        if (terrainCounter < 25)
+        if (terrainCounter < SimonSpacing)
         {
             newPiece = Instantiate(Terrain_Prefabs[myRandIndex], position, Quaternion.identity) as GameObject;
             terrainCounter++;

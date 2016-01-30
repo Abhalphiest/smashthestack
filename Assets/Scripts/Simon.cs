@@ -6,12 +6,12 @@ public class Simon : MonoBehaviour {
 
    
     #region Color Index Definitions
-    const int BLUE_INDEX = 0;
-    const int RED_INDEX = 1;
-    const int YELLOW_INDEX = 2;
-    const int GREEN_INDEX = 3;
-    const int WHITE_INDEX = 4;
-    const int BLACK_INDEX = 5;
+    public const int BLUE_INDEX = 0;
+    public const int RED_INDEX = 1;
+    public const int YELLOW_INDEX = 2;
+    public const int GREEN_INDEX = 3;
+    public const int WHITE_INDEX = 4;
+    public const int BLACK_INDEX = 5;
     #endregion
 
     List<int> simonList; //currently implemented with ints, can be easily substituted for Unity Color. Only accept [0,5] integers.
@@ -76,7 +76,7 @@ public class Simon : MonoBehaviour {
     {
         //do whatever we're doing in response to errors
     }
-    void pushSimonColor(int p_colorIndex)
+    public void pushSimonColor(int p_colorIndex)
     {
         if (p_colorIndex >= 0 && p_colorIndex < 6)
             simonList.Add(p_colorIndex);
@@ -104,16 +104,20 @@ public class Simon : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
-        if(seconds > 0.0f)
+        bool result = false;
+        if (seconds > 0.0f)
         {
-            bool result = simon();
-            if(result)
-                print(result);
+            result = simon();
+            if (result)
+            {
+                print(result); 
+            }
+            
         }
+        GetComponent<GameManagerScript>().SetSuccess(result);
     }
 
-    void startSimon(float p_seconds)
+    public void startSimon(float p_seconds)
     {
         seconds = p_seconds;
     }
