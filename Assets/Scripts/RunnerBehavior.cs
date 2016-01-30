@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using System.Collections;
 using System.Text;
 using Prime31;
@@ -11,6 +12,7 @@ public class RunnerBehavior : MonoBehaviour
     public float Gravity = 5f;
     public float BaseX = 0;
     public float XResetSpeed = 0.5f;
+    public bool Paused;
 
     private bool _jumping = false;
     private float _jumpTime = 0;
@@ -23,6 +25,11 @@ public class RunnerBehavior : MonoBehaviour
 	
 	// Update is called once per frame
 	void FixedUpdate () {
+	    if (Paused)
+	    {
+	        return;
+	    }
+
         gameObject.transform.position += Vector3.left * Time.fixedDeltaTime;
 
         if (GetComponent<CharacterController2D>().isGrounded)
