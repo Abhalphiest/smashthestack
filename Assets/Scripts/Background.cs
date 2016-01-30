@@ -7,9 +7,9 @@ public class Background : MonoBehaviour {
     public float layer1_y;
     public float layer2_y;
     public float layer3_y;
-    public float speed1 = .15f;
-    public float speed2 = .15f;
-    public float speed3 = .15f;
+    public float speed1 = 15f;
+    public float speed2 = 15f;
+    public float speed3 = 15f;
     public int layer1_buffer = 3;
     public int layer2_buffer = 3;
     public int layer3_buffer = 3;
@@ -55,9 +55,9 @@ public class Background : MonoBehaviour {
     // Update is called once per frame
     void Update () {
         //Move the background left along the screen
-        Vector3 scrollSpeed1 = new Vector3(speed1, 0, 0);
-        Vector3 scrollSpeed2 = new Vector3(speed2, 0, 0);
-        Vector3 scrollSpeed3 = new Vector3(speed3, 0, 0);
+        Vector3 scrollSpeed1 = Time.deltaTime * new Vector3(speed1, 0, 0);
+        Vector3 scrollSpeed2 = Time.deltaTime * new Vector3(speed2, 0, 0);
+        Vector3 scrollSpeed3 = Time.deltaTime * new Vector3(speed3, 0, 0);
 
         foreach (GameObject frame in layer1List)
         {
