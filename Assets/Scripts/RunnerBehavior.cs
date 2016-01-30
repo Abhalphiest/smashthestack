@@ -55,10 +55,9 @@ public class RunnerBehavior : MonoBehaviour
             rigidBody.AddForce(new Vector2(XResetSpeed, 0.0f), ForceMode2D.Force);
 	    }
         else
-	    {
-	        
-	    }
-
+        {
+            rigidBody.velocity = new Vector2(0.0f, rigidBody.velocity.y);
+        }
         rigidBody.AddForce(new Vector2(0.0f, -Gravity), ForceMode2D.Force);
     }
 }
