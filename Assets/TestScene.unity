@@ -174,32 +174,7 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5012092, guid: 877e564d381f2814c8fb85dac7625d6b, type: 2}
-      propertyPath: m_CollisionDetection
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5012092, guid: 877e564d381f2814c8fb85dac7625d6b, type: 2}
-      propertyPath: m_IsKinematic
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5012092, guid: 877e564d381f2814c8fb85dac7625d6b, type: 2}
-      propertyPath: m_GravityScale
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11407058, guid: 877e564d381f2814c8fb85dac7625d6b, type: 2}
-      propertyPath: JumpPower
-      value: 375
-      objectReference: {fileID: 0}
-    - target: {fileID: 11407058, guid: 877e564d381f2814c8fb85dac7625d6b, type: 2}
-      propertyPath: Gravity
-      value: 300
-      objectReference: {fileID: 0}
-    - target: {fileID: 11407058, guid: 877e564d381f2814c8fb85dac7625d6b, type: 2}
-      propertyPath: XResetSpeed
-      value: 135
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 0}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 877e564d381f2814c8fb85dac7625d6b, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1012526735
@@ -312,5 +287,5 @@ MonoBehaviour:
   - {fileID: 167418, guid: b33c21673f4b7314a9b6cfa6eb676c0e, type: 2}
   Terrain_Flat: {fileID: 167418, guid: b33c21673f4b7314a9b6cfa6eb676c0e, type: 2}
   Terrain_Simons: []
-  screenSpeed: .5
+  screenSpeed: .100000001
   isPaused: 0

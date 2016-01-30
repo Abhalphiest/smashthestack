@@ -221,9 +221,8 @@ MonoBehaviour:
   - {fileID: 167418, guid: b33c21673f4b7314a9b6cfa6eb676c0e, type: 2}
   - {fileID: 192980, guid: b3bbfa732f1b5604ab2c353106fd49d8, type: 2}
   Terrain_Flat: {fileID: 167418, guid: b33c21673f4b7314a9b6cfa6eb676c0e, type: 2}
-  Terrain_Simons:
-  - {fileID: 191976, guid: a6b865abebb071845bd93ef95b68ca76, type: 2}
-  screenSpeed: .150000006
+  Simon_Terrain: {fileID: 143416, guid: 6f9fea072dd1c1f42a8c325bd39f6db7, type: 2}
+  screenSpeed: .200000003
   isPaused: 0
 --- !u!4 &1292202778
 Transform:

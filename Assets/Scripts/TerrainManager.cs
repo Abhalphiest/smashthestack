@@ -10,19 +10,24 @@ public class TerrainManager : MonoBehaviour {
     private TerrainData[] terrain;
     public int leftIndex;
     public int rightIndex;
+    private int terrainCounter;
 
     // Public
     public GameObject[] Terrain_Prefabs;
     public GameObject Terrain_Flat;
-    public GameObject[] Terrain_Simons;
+    public GameObject Simon_Terrain;
+
+    private GameObject curr_Simon;
 
     private TerrainData[] Terrain_Prefabs_Data;
     public float screenSpeed = 0.5f;
-
+    private GameObject player;
     public bool isPaused = false;
 
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("player");
+        terrainCounter = 0;
         // Setup the prefabs data
         Terrain_Prefabs_Data = new TerrainData[Terrain_Prefabs.Length];
         for (int i = 0; i < Terrain_Prefabs_Data.Length; ++i)
@@ -40,6 +45,7 @@ public class TerrainManager : MonoBehaviour {
         {
             GameObject newObject = Instantiate(Terrain_Flat, new Vector3(-WIDE_PIECE_WIDTH + i * WIDE_PIECE_WIDTH, 0, 0), Quaternion.identity) as GameObject;
             terrain[i] = newObject.GetComponent<TerrainData>();
+            terrainCounter++;
         }
     }
 
@@ -76,6 +82,10 @@ public class TerrainManager : MonoBehaviour {
             rightIndex = (rightIndex + 1) % MAX_TERRAIN_PIECES;
 
         }
+        if(curr_Simon != null && Mathf.Abs(curr_Simon.transform.position.x - 4 - player.transform.position.x) < .005)
+        {
+            //send off signal
+        }
 	}
 
     private TerrainData GenerateTerrainPiece()
@@ -90,9 +100,18 @@ public class TerrainManager : MonoBehaviour {
         int rightWidth = Terrain_Prefabs[myRandIndex].GetComponent<TerrainData>().isLarge ? WIDE_PIECE_WIDTH / 2 : NORMAL_PIECE_WIDTH / 2;
        
         Vector3 position = terrain[rightIndex].transform.position + new Vector3(leftWidth + rightWidth, 0, 0);
-
-        GameObject newPiece = Instantiate(Terrain_Prefabs[myRandIndex], position, Quaternion.identity) as GameObject;
-
+        GameObject newPiece;
+        if (terrainCounter < 25)
+        {
+            newPiece = Instantiate(Terrain_Prefabs[myRandIndex], position, Quaternion.identity) as GameObject;
+            terrainCounter++;
+        }
+        else
+        {
+            terrainCounter = 0;
+            newPiece = Instantiate(Simon_Terrain, position, Quaternion.identity) as GameObject;
+            curr_Simon = newPiece;
+        }
         return newPiece.GetComponent<TerrainData>();
     }
 

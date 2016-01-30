@@ -1,19 +1,19 @@
 fileFormatVersion: 2
-guid: 7a8a0617bbe9f0848be680e6552aaaed
-timeCreated: 1454130300
+guid: 526f020c8acb11643934336dc37ed5a6
+timeCreated: 1454172537
 licenseType: Pro
 TextureImporter:
   fileIDToRecycleName:
-    21300000: spritefiller_0
-    21300002: spritefiller_1
-    21300004: spritefiller_2
-    21300006: spritefiller_3
-    21300008: spritefiller_4
-    21300010: spritefiller_5
-    21300012: spritefiller_6
-    21300014: spritefiller_7
-    21300016: spritefiller_8
-    21300018: spritefiller_9
+    21300000: Neu_run_cycle_0
+    21300002: Neu_run_cycle_1
+    21300004: Neu_run_cycle_2
+    21300006: Neu_run_cycle_3
+    21300008: Neu_run_cycle_4
+    21300010: Neu_run_cycle_5
+    21300012: Neu_run_cycle_6
+    21300014: Neu_run_cycle_7
+    21300016: Neu_run_cycle_8
+    21300018: Neu_run_cycle_9
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -60,105 +60,105 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: spritefiller_0
+    - name: Neu_run_cycle_0
       rect:
         serializedVersion: 2
-        x: 22
-        y: 17
-        width: 83
-        height: 195
+        x: 117
+        y: 10
+        width: 270
+        height: 586
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: spritefiller_1
+    - name: Neu_run_cycle_1
       rect:
         serializedVersion: 2
-        x: 110
-        y: 18
-        width: 96
-        height: 194
+        x: 547
+        y: 74
+        width: 554
+        height: 500
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: spritefiller_2
+    - name: Neu_run_cycle_2
       rect:
         serializedVersion: 2
-        x: 208
-        y: 19
-        width: 91
-        height: 192
+        x: 1181
+        y: 12
+        width: 351
+        height: 570
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: spritefiller_3
+    - name: Neu_run_cycle_3
       rect:
         serializedVersion: 2
-        x: 304
-        y: 16
-        width: 91
-        height: 196
+        x: 1755
+        y: 12
+        width: 330
+        height: 581
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: spritefiller_4
+    - name: Neu_run_cycle_4
       rect:
         serializedVersion: 2
-        x: 400
-        y: 20
-        width: 89
-        height: 194
+        x: 2420
+        y: 0
+        width: 142
+        height: 605
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: spritefiller_5
+    - name: Neu_run_cycle_5
       rect:
         serializedVersion: 2
-        x: 491
-        y: 17
-        width: 95
-        height: 198
+        x: 2843
+        y: 11
+        width: 282
+        height: 585
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: spritefiller_6
+    - name: Neu_run_cycle_6
       rect:
         serializedVersion: 2
-        x: 590
-        y: 18
-        width: 86
-        height: 197
+        x: 3307
+        y: 36
+        width: 519
+        height: 538
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: spritefiller_7
+    - name: Neu_run_cycle_7
       rect:
         serializedVersion: 2
-        x: 684
-        y: 18
-        width: 88
-        height: 198
+        x: 3919
+        y: 23
+        width: 351
+        height: 564
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: spritefiller_8
+    - name: Neu_run_cycle_8
       rect:
         serializedVersion: 2
-        x: 777
-        y: 17
-        width: 95
-        height: 198
+        x: 4541
+        y: 4
+        width: 233
+        height: 597
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: spritefiller_9
+    - name: Neu_run_cycle_9
       rect:
         serializedVersion: 2
-        x: 877
-        y: 16
-        width: 95
-        height: 200
+        x: 5157
+        y: 0
+        width: 145
+        height: 605
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
