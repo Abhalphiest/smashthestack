@@ -25,8 +25,6 @@ public class Simon : MonoBehaviour {
     
     bool simon()
     {
-
-        print("starting simon");
         if (seconds > 0)
         {
             if (simonListIndex < simonList.Count)
@@ -124,7 +122,8 @@ public class Simon : MonoBehaviour {
         if(seconds > 0.0f)
         {
             bool result = simon();
-            print(result);
+            if(result)
+                print(result);
         }
     }
 }
