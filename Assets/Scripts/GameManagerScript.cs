@@ -3,17 +3,25 @@ using System.Collections;
 using System.Collections.Generic;
 public class GameManagerScript : MonoBehaviour {
 
-    
-	// Use this for initialization
-	void Start () {
+    #region Color Index Definitions
+    const int BLUE_INDEX = 0;
+    const int RED_INDEX = 1;
+    const int YELLOW_INDEX = 2;
+    const int GREEN_INDEX = 3;
+    const int WHITE_INDEX = 4;
+    const int BLACK_INDEX = 5;
+    #endregion
+
+    // Use this for initialization
+    void Start () {
         simonList = new List<int>(); //for simon minigame
         colorArr = new Color[6];
-        colorArr[0] = new Color(32, 32, 255);//BLUE
-        colorArr[1] = new Color(237, 32, 32);//RED
-        colorArr[2] = new Color(255, 242, 0); //YELLOW
-        colorArr[3] = new Color(15, 133, 4); //GREEN
-        colorArr[4] = new Color(255, 255, 255); //WHITE
-        colorArr[5] = new Color(0, 0, 0); //BLACK
+        colorArr[BLUE_INDEX] = new Color(32, 32, 255);//BLUE
+        colorArr[RED_INDEX] = new Color(237, 32, 32);//RED
+        colorArr[YELLOW_INDEX] = new Color(255, 242, 0); //YELLOW
+        colorArr[GREEN_INDEX] = new Color(15, 133, 4); //GREEN
+        colorArr[WHITE_INDEX] = new Color(255, 255, 255); //WHITE
+        colorArr[BLACK_INDEX] = new Color(0, 0, 0); //BLACK
 	}
 	
 	// Update is called once per frame
@@ -75,12 +83,17 @@ public class GameManagerScript : MonoBehaviour {
     void flashColor(int p_colorIndex)
     {
         //to be changed later, obviously
-        if(p_colorIndex >=0 && p_colorIndex < 6)
+        if (p_colorIndex >= 0 && p_colorIndex < 6)
             GetComponent<Camera>().backgroundColor = colorArr[p_colorIndex];
     }
     void flashError()
     {
         //do whatever we're doing in response to errors
+    }
+    void pushSimonColor(int p_colorIndex)
+    {
+        if (p_colorIndex >= 0 && p_colorIndex < 6)
+            simonList.Add(p_colorIndex);
     }
     #endregion
 }
