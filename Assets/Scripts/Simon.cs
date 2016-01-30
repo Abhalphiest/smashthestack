@@ -86,11 +86,11 @@ public class Simon : MonoBehaviour {
 
         simonList = new List<int>(); //for simon minigame
         colorArr = new Color[6];
-        colorArr[BLUE_INDEX] = new Color(32, 32, 255);//BLUE
-        colorArr[RED_INDEX] = new Color(237, 32, 32);//RED
-        colorArr[YELLOW_INDEX] = new Color(255, 242, 0); //YELLOW
-        colorArr[GREEN_INDEX] = new Color(15, 133, 4); //GREEN
-        colorArr[WHITE_INDEX] = new Color(255, 255, 255); //WHITE
+        colorArr[BLUE_INDEX] = new Color(.125f, .125f, 1.0f);//BLUE
+        colorArr[RED_INDEX] = new Color(.929f, .125f, .125f);//RED
+        colorArr[YELLOW_INDEX] = new Color(1.0f, .949f, 0.0f); //YELLOW
+        colorArr[GREEN_INDEX] = new Color(.058f, .521f, .0156f); //GREEN
+        colorArr[WHITE_INDEX] = new Color(1.0f, 1.0f, 1.0f); //WHITE
         colorArr[BLACK_INDEX] = new Color(0, 0, 0); //BLACK
         keystrokeMap = new Dictionary<int, KeyCode>();
         keystrokeMap[BLUE_INDEX] = KeyCode.Alpha1;
@@ -104,24 +104,6 @@ public class Simon : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            print("caught simon call");
-            seconds = 30.0f;
-            
-        }
-        else if (Input.GetKeyDown(KeyCode.R))
-        {
-
-            print("pushing red");
-            pushSimonColor(RED_INDEX);
-        }
-        else if (Input.GetKeyDown(KeyCode.B))
-        {
-
-            print("pushing blue");
-            pushSimonColor(BLUE_INDEX);
-        }
 
         if(seconds > 0.0f)
         {
@@ -129,5 +111,10 @@ public class Simon : MonoBehaviour {
             if(result)
                 print(result);
         }
+    }
+
+    void startSimon(float p_seconds)
+    {
+        seconds = p_seconds;
     }
 }
