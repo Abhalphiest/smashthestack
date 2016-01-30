@@ -23,7 +23,7 @@ public class Simon : MonoBehaviour {
     /// simon runs the memory minigame
     /// </summary>
     
-    bool simon()
+    int simon()
     {
         if (seconds > 0)
         {
@@ -49,17 +49,18 @@ public class Simon : MonoBehaviour {
                     }
 
                 }
+                return 0;
             }
             else
             {
                 simonListIndex = 0;
                 seconds = 0.0f;
-                return true;
+                return 1;
             }
             seconds -= Time.deltaTime; //increment our time clock
             
         }
-        return false;
+        return -1;
 
     }
     void flashColor(int p_colorIndex)
@@ -104,17 +105,23 @@ public class Simon : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        bool result = false;
+        int result;
         if (seconds > 0.0f)
         {
             result = simon();
-            if (result)
+            if (result == 1)
             {
-                print(result); 
+                print("won");
+                GetComponent<GameManagerScript>().SetSuccess(true);
             }
-            
+            else if(result == -1)
+            {
+                print("lost");
+                GetComponent<GameManagerScript>().SetSuccess(false);
+            }
+
         }
-        GetComponent<GameManagerScript>().SetSuccess(result);
+        
     }
 
     public void startSimon(float p_seconds)
