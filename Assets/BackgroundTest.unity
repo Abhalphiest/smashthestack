@@ -124,14 +124,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6154196, guid: 877e564d381f2814c8fb85dac7625d6b, type: 2}
-      propertyPath: m_Size.x
-      value: .0799999982
-      objectReference: {fileID: 0}
-    - target: {fileID: 11407058, guid: 877e564d381f2814c8fb85dac7625d6b, type: 2}
-      propertyPath: BaseX
-      value: -1.37
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 877e564d381f2814c8fb85dac7625d6b, type: 2}
   m_IsPrefabParent: 0
@@ -2507,7 +2499,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 491626, guid: c27a7a97f4b96e34ba8c441b490ca493, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11488820, guid: c27a7a97f4b96e34ba8c441b490ca493, type: 2}
       propertyPath: Terrain_Prefabs.Array.data[2]
@@ -2545,6 +2537,18 @@ Prefab:
       propertyPath: Terrain_Prefabs.Array.data[0]
       value: 
       objectReference: {fileID: 109452, guid: 5b9d68b1275d1184b90bedda97ecbd6c, type: 2}
+    - target: {fileID: 11400958, guid: c27a7a97f4b96e34ba8c441b490ca493, type: 2}
+      propertyPath: Terrain_Prefabs.Array.data[3]
+      value: 
+      objectReference: {fileID: 109452, guid: 5b9d68b1275d1184b90bedda97ecbd6c, type: 2}
+    - target: {fileID: 11400958, guid: c27a7a97f4b96e34ba8c441b490ca493, type: 2}
+      propertyPath: Terrain_Prefabs.Array.data[2]
+      value: 
+      objectReference: {fileID: 119248, guid: 3dc2d66346d89a74fa928c8a1b826c7e, type: 2}
+    - target: {fileID: 11400958, guid: c27a7a97f4b96e34ba8c441b490ca493, type: 2}
+      propertyPath: screenSpeed
+      value: .200000003
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c27a7a97f4b96e34ba8c441b490ca493, type: 2}
   m_IsPrefabParent: 0
