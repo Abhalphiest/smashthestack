@@ -24,6 +24,7 @@ public class TerrainManager : MonoBehaviour {
     public float screenSpeed = 0.5f;
     private GameObject player;
     public bool isPaused = false;
+    public bool success = false;
 
     void Start()
     {
@@ -83,9 +84,8 @@ public class TerrainManager : MonoBehaviour {
             rightIndex = (rightIndex + 1) % MAX_TERRAIN_PIECES;
 
         }
-        if(curr_Simon != null && Mathf.Abs(curr_Simon.transform.position.x - 4 - player.transform.position.x) < 1)
+        if(curr_Simon != null && Mathf.Abs(curr_Simon.transform.position.x - 4 - player.transform.position.x) < 1 && !success)
         {
-            print("tried to pause");
             GetComponent<GameManagerScript>().SetPause();
         }
 	}
@@ -106,6 +106,7 @@ public class TerrainManager : MonoBehaviour {
         if (terrainCounter < SimonSpacing)
         {
             newPiece = Instantiate(Terrain_Prefabs[myRandIndex], position, Quaternion.identity) as GameObject;
+            success = false;
             terrainCounter++;
         }
         else
