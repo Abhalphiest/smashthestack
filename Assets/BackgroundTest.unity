@@ -94,11 +94,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 432540, guid: 877e564d381f2814c8fb85dac7625d6b, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 1.52999997
+      value: -8.47999954
       objectReference: {fileID: 0}
     - target: {fileID: 432540, guid: 877e564d381f2814c8fb85dac7625d6b, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 2.97000003
+      value: 4.05000019
       objectReference: {fileID: 0}
     - target: {fileID: 432540, guid: 877e564d381f2814c8fb85dac7625d6b, type: 2}
       propertyPath: m_LocalPosition.z
@@ -2541,6 +2541,10 @@ Prefab:
       propertyPath: screenSpeed
       value: .200000003
       objectReference: {fileID: 0}
+    - target: {fileID: 11488820, guid: c27a7a97f4b96e34ba8c441b490ca493, type: 2}
+      propertyPath: Terrain_Prefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 109452, guid: 5b9d68b1275d1184b90bedda97ecbd6c, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c27a7a97f4b96e34ba8c441b490ca493, type: 2}
   m_IsPrefabParent: 0
