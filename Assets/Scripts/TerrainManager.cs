@@ -4,8 +4,8 @@ using System.Collections;
 public class TerrainManager : MonoBehaviour {
     // Number of terrain pieces that can exist at once.
     private const int MAX_TERRAIN_PIECES = 4;
-    private const int NORMAL_PIECE_WIDTH = 4;
-    private const int WIDE_PIECE_WIDTH = 8;
+    private const int NORMAL_PIECE_WIDTH = 8;
+    private const int WIDE_PIECE_WIDTH = 16;
 
     private TerrainData[] terrain;
     public int leftIndex;
@@ -38,7 +38,7 @@ public class TerrainManager : MonoBehaviour {
         // Spawn the starting terrain.
         for (int i = 0; i < MAX_TERRAIN_PIECES; ++i)
         {
-            GameObject newObject = Instantiate(Terrain_Flat, new Vector3(-6 + i * WIDE_PIECE_WIDTH, 0, 0), Quaternion.identity) as GameObject;
+            GameObject newObject = Instantiate(Terrain_Flat, new Vector3(-WIDE_PIECE_WIDTH + i * WIDE_PIECE_WIDTH, 0, 0), Quaternion.identity) as GameObject;
             terrain[i] = newObject.GetComponent<TerrainData>();
         }
     }
@@ -63,7 +63,7 @@ public class TerrainManager : MonoBehaviour {
             terrain[i].transform.position = new Vector3(terrain[i].transform.position.x - screenSpeed, terrain[i].transform.position.y, terrain[i].transform.position.z);
         }
 
-        int leftBound = terrain[leftIndex].isLarge ? -9 : -7;
+        int leftBound = terrain[leftIndex].isLarge ? -17 : -13;
 
         // then check if the leftmost object
         if (terrain[leftIndex].transform.position.x < leftBound)
