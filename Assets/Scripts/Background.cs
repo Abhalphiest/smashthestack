@@ -1,101 +1,95 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Background : MonoBehaviour {
 
+    public float layer1_y;
+    public float layer2_y;
+    public float layer3_y;
+    public float speed1 = .15f;
+    public float speed2 = .15f;
+    public float speed3 = .15f;
+    public int layer1_buffer = 3;
+    public int layer2_buffer = 3;
+    public int layer3_buffer = 3;
     //backward parallax layer
     public GameObject layer1;
-    private GameObject layer1A;
-    private GameObject layer1B;
-    private GameObject layer1C;
+    private List<GameObject> layer1List;
     //middle parallax layer
     public GameObject layer2;
-    private GameObject layer2A;
-    private GameObject layer2B;
-    private GameObject layer2C;
+    private List<GameObject> layer2List;
     //forward parallax layer
     public GameObject layer3;
-    private GameObject layer3A;
-    private GameObject layer3B;
-    private GameObject layer3C;
+    private List<GameObject> layer3List;
 
     // Use this for initialization
     void Start () {
+        layer1List = new List<GameObject>();
+        layer2List = new List<GameObject>();
+        layer3List = new List<GameObject>();
         //Load in the parallax background images
-        layer1A = (GameObject)Instantiate(layer1, new Vector3(0, 0, 5), Quaternion.identity);
-        layer1B = (GameObject)Instantiate(layer1, new Vector3(14, 0, 5), Quaternion.identity);
-        layer1C = (GameObject)Instantiate(layer1, new Vector3(28, 0, 5), Quaternion.identity);
-        layer2A = (GameObject)Instantiate(layer2, new Vector3(0, 0, 4), Quaternion.identity);
-        layer2B = (GameObject)Instantiate(layer2, new Vector3(14, 0, 4), Quaternion.identity);
-        layer2C = (GameObject)Instantiate(layer2, new Vector3(28, 0, 4), Quaternion.identity);
-        layer3A = (GameObject)Instantiate(layer3, new Vector3(0, 0, 3), Quaternion.identity);
-        layer3B = (GameObject)Instantiate(layer3, new Vector3(14, 0, 3), Quaternion.identity);
-        layer3C = (GameObject)Instantiate(layer3, new Vector3(28, 0, 3), Quaternion.identity);
+        for (int i = 0; i < layer1_buffer; i++)
+        {
+            layer1List.Add((GameObject)Instantiate(layer1, new Vector3(14*i, layer1_y, 5), Quaternion.identity));
+        }
+        for (int i = 0; i < layer2_buffer; i++)
+        {
+            layer2List.Add((GameObject)Instantiate(layer2, new Vector3(14 * i, layer2_y, 4), Quaternion.identity));
+        }
+        for (int i = 0; i < layer3_buffer; i++)
+        {
+            layer3List.Add((GameObject)Instantiate(layer3, new Vector3(14 * i, layer3_y, 3), Quaternion.identity));
+        }
     }
 
     // Update is called once per frame
     void Update () {
         //Move the background left along the screen
-        Vector3 scrollSpeed1 = new Vector3(0.1f, 0, 0);
-        layer1A.transform.position -= scrollSpeed1;
-        layer1B.transform.position -= scrollSpeed1;
-        layer1C.transform.position -= scrollSpeed1;
-        Vector3 scrollSpeed2 = new Vector3(0.15f, 0, 0);
-        layer2A.transform.position -= scrollSpeed2;
-        layer2B.transform.position -= scrollSpeed2;
-        layer2C.transform.position -= scrollSpeed2;
-        Vector3 scrollSpeed3 = new Vector3(0.2f, 0, 0);
-        layer3A.transform.position -= scrollSpeed3;
-        layer3B.transform.position -= scrollSpeed3;
-        layer3C.transform.position -= scrollSpeed3;
+        Vector3 scrollSpeed1 = new Vector3(speed1, 0, 0);
+        Vector3 scrollSpeed2 = new Vector3(speed2, 0, 0);
+        Vector3 scrollSpeed3 = new Vector3(speed3, 0, 0);
 
-        int screensPerLayer = 3;
+        foreach (GameObject frame in layer1List)
+        {
+            frame.transform.position -= scrollSpeed1;
+        }
+        foreach (GameObject frame in layer2List)
+        {
+            frame.transform.position -= scrollSpeed2;
+        }
+        foreach (GameObject frame in layer3List)
+        {
+            frame.transform.position -= scrollSpeed3;
+        }
+
         float resetPos = -20.0f;
-        float moveTo = resetPos + (14 * screensPerLayer);
-        //if parallax layer 1A moves too far left, move it back around to the right
-        if (layer1A.transform.position.x < resetPos)
+        float moveTo = resetPos + (14 * layer1_buffer);
+        //if parallax layer 1 moves too far left, move it back around to the right
+        if (layer1List[0].transform.position.x < resetPos)
         {
-            layer1A.transform.position = new Vector3(moveTo, 0, 5);
+            GameObject temp = layer1List[0];
+            layer1List.RemoveAt(0);
+            temp.transform.position = new Vector3(moveTo, layer1_y, 5);
+            layer1List.Add(temp);
         }
-        //if parallax layer 1B moves too far left, move it back around to the right
-        if (layer1B.transform.position.x < resetPos)
+        moveTo = resetPos + (14 * layer2_buffer);
+        //if parallax layer 2 moves too far left, move it back around to the right
+        if (layer2List[0].transform.position.x < resetPos)
         {
-            layer1B.transform.position = new Vector3(moveTo, 0, 5);
+            GameObject temp = layer2List[0];
+            layer2List.RemoveAt(0);
+            temp.transform.position = new Vector3(moveTo, layer2_y, 4);
+            layer2List.Add(temp);
         }
-        //if parallax layer 1C moves too far left, move it back around to the right
-        if (layer1C.transform.position.x < resetPos)
+        moveTo = resetPos + (14 * layer3_buffer);
+        //if parallax layer 3 moves too far left, move it back around to the right
+        if (layer3List[0].transform.position.x < resetPos)
         {
-            layer1C.transform.position = new Vector3(moveTo, 0, 5);
-        }
-        //if parallax layer 2A moves too far left, move it back around to the right
-        if (layer2A.transform.position.x < resetPos)
-        {
-            layer2A.transform.position = new Vector3(moveTo, 0, 4);
-        }
-        //if parallax layer 2B moves too far left, move it back around to the right
-        if (layer2B.transform.position.x < resetPos)
-        {
-            layer2B.transform.position = new Vector3(moveTo, 0, 4);
-        }
-        //if parallax layer 2C moves too far left, move it back around to the right
-        if (layer2C.transform.position.x < resetPos)
-        {
-            layer2C.transform.position = new Vector3(moveTo, 0, 4);
-        }
-        //if parallax layer 3A moves too far left, move it back around to the right
-        if (layer3A.transform.position.x < resetPos)
-        {
-            layer3A.transform.position = new Vector3(moveTo, 0, 3);
-        }
-        //if parallax layer 3B moves too far left, move it back around to the right
-        if (layer3B.transform.position.x < resetPos)
-        {
-            layer3B.transform.position = new Vector3(moveTo, 0, 3);
-        }
-        //if parallax layer 3C moves too far left, move it back around to the right
-        if (layer3C.transform.position.x < resetPos)
-        {
-            layer3C.transform.position = new Vector3(moveTo, 0, 3);
+            GameObject temp = layer3List[0];
+            layer3List.RemoveAt(0);
+            temp.transform.position = new Vector3(moveTo, layer3_y, 3);
+            layer3List.Add(temp);
         }
     }
 }
