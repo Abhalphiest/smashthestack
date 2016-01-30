@@ -200,11 +200,6 @@ MonoBehaviour:
   leftPlatformHeight: 1
   rightPlatformHeight: 1
   weight: 100
-<<<<<<< HEAD
-  freqMultiplier: .998803735
-  isLarge: 1
---- !u!212 &21202678
-=======
   freqMultiplier: .934672236
   isLarge: 1
 --- !u!212 &21232192
@@ -264,7 +259,6 @@ SpriteRenderer:
   m_Sprite: {fileID: 21300000, guid: 85a517f9f9659f8419e233959c12950d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!212 &21245854
->>>>>>> 1d5fb18c10176dfd4f462db773ca4f5ae2d46843
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
