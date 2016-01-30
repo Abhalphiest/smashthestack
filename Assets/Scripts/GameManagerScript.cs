@@ -33,7 +33,7 @@ public class GameManagerScript : MonoBehaviour {
             print("success attempt");
             paused = false;
             player.GetComponent<RunnerBehavior>().Paused = false;
-            player.GetComponent<TerrainManager>().success = true;
+            GetComponent<TerrainManager>().success = true;
             GetComponent<TerrainManager>().isPaused = false;
         }
     }
