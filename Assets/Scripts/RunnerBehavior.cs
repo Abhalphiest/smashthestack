@@ -14,8 +14,10 @@ public class RunnerBehavior : MonoBehaviour
     public float XResetSpeed = 200f;
     public bool Paused;
     public float runSpeed = .2f;
-    private bool _jumping = false;
-    private float _jumpTime = 0;
+    private bool jumping = false;
+    private bool sliding = false;
+    private bool attacking = false;
+    private float jumpTime = 0;
 
     private Rigidbody2D rigidBody;
 	// Use this for initialization
@@ -24,11 +26,24 @@ public class RunnerBehavior : MonoBehaviour
     }
 	void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.W))
         {
-
-            _jumping = true;
-            _jumpTime = 0;
+            jumping = true;
+            jumpTime = 0;
+        }
+        if(Input.GetKeyDown(KeyCode.D))
+        {
+            //attack code
+            attacking = true;
+        }
+        if(Input.GetKeyDown(KeyCode.S))
+        {
+            //slide code
+            sliding = true;
+        }
+        if(Input.GetKeyUp(KeyCode.S))
+        {
+            sliding = false;
         }
     }
 	// Update is called once per frame
@@ -38,18 +53,25 @@ public class RunnerBehavior : MonoBehaviour
 	    {
 	        return;
 	    }        
-        if(_jumping)
+        if(jumping)
         {
             
-            _jumpTime += Time.fixedDeltaTime;
+            jumpTime += Time.fixedDeltaTime;
             rigidBody.AddForce(new Vector2(0.0f, JumpPower),ForceMode2D.Force);
             
-            if (_jumpTime > MaxJumpTime || !Input.GetKey(KeyCode.Space))
+            if (jumpTime > MaxJumpTime || !Input.GetKey(KeyCode.W))
             {
-                _jumping = false;
+                jumping = false;
             }
         }
-
+        if(sliding)
+        {
+            //sliding logic
+        }
+        if(attacking)
+        {
+            //attackinglogic
+        }
 	    if (transform.position.x < BaseX)
 	    {
             rigidBody.AddForce(new Vector2(XResetSpeed, 0.0f), ForceMode2D.Force);

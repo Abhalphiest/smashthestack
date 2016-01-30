@@ -188,7 +188,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11407058, guid: 877e564d381f2814c8fb85dac7625d6b, type: 2}
       propertyPath: JumpPower
-      value: 450
+      value: 375
       objectReference: {fileID: 0}
     - target: {fileID: 11407058, guid: 877e564d381f2814c8fb85dac7625d6b, type: 2}
       propertyPath: Gravity

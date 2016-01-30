@@ -130,10 +130,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxJumpTime: .300000012
-  JumpPower: 12
-  Gravity: 24
+  JumpPower: 350
+  Gravity: 300
   BaseX: 0
-  XResetSpeed: .5
+  XResetSpeed: 135
   Paused: 0
   runSpeed: .200000003
 --- !u!198 &19823312
@@ -1273,6 +1273,18 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_Constraints
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: JumpPower
+      value: 350
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: Gravity
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: XResetSpeed
+      value: 135
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
