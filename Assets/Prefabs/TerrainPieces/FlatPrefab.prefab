@@ -15,7 +15,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &111472
 GameObject:
   m_ObjectHideFlags: 0
@@ -42,6 +42,7 @@ GameObject:
   - 4: {fileID: 430668}
   - 212: {fileID: 21226686}
   - 61: {fileID: 6196298}
+
   m_Layer: 8
   m_Name: 8x1
   m_TagString: Untagged
@@ -87,7 +88,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 432708}
   m_RootOrder: 0
---- !u!61 &6196298
+	!u!61 &6196298
 BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
