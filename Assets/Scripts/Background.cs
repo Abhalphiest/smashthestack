@@ -40,15 +40,15 @@ public class Background : MonoBehaviour {
         //Load in the parallax background images
         for (int i = 0; i < layer1_buffer; i++)
         {
-            layer1List.Add((GameObject)Instantiate(layer1, new Vector3(layer1UnityWidth * i, layer1_y, 5), Quaternion.identity));
+            layer1List.Add((GameObject)Instantiate(layer1, new Vector3(layer1UnityWidth * i, layer1_y, 5 + i * 0.001f), Quaternion.identity));
         }
         for (int i = 0; i < layer2_buffer; i++)
         {
-            layer2List.Add((GameObject)Instantiate(layer2, new Vector3(layer2UnityWidth * i, layer2_y, 4), Quaternion.identity));
+            layer2List.Add((GameObject)Instantiate(layer2, new Vector3(layer2UnityWidth * i, layer2_y, 4 + i * 0.001f), Quaternion.identity));
         }
         for (int i = 0; i < layer3_buffer; i++)
         {
-            layer3List.Add((GameObject)Instantiate(layer3, new Vector3(layer3UnityWidth * i, layer3_y, 3), Quaternion.identity));
+            layer3List.Add((GameObject)Instantiate(layer3, new Vector3(layer3UnityWidth * i, layer3_y, 3 + i * 0.001f), Quaternion.identity));
         }
     }
 

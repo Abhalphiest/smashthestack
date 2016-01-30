@@ -8,25 +8,25 @@ SceneSettings:
   m_PVSPortalsArray: []
   m_OcclusionBakeSettings:
     smallestOccluder: 5
-    smallestHole: 0.25
+    smallestHole: .25
     backfaceThreshold: 100
 --- !u!104 &2
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 6
   m_Fog: 0
-  m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  m_FogColor: {r: .5, g: .5, b: .5, a: 1}
   m_FogMode: 3
-  m_FogDensity: 0.01
+  m_FogDensity: .00999999978
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
-  m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
-  m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
+  m_AmbientSkyColor: {r: .211999997, g: .226999998, b: .259000003, a: 1}
+  m_AmbientEquatorColor: {r: .114, g: .125, b: .133000001, a: 1}
+  m_AmbientGroundColor: {r: .0469999984, g: .0430000015, b: .0350000001, a: 1}
   m_AmbientIntensity: 1
   m_AmbientMode: 3
   m_SkyboxMaterial: {fileID: 0}
-  m_HaloStrength: 0.5
+  m_HaloStrength: .5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
   m_HaloTexture: {fileID: 0}
@@ -40,7 +40,7 @@ RenderSettings:
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 6
+  serializedVersion: 5
   m_GIWorkflowMode: 1
   m_LightmapsMode: 1
   m_GISettings:
@@ -66,7 +66,7 @@ LightmapSettings:
     m_FinalGather: 0
     m_FinalGatherRayCount: 1024
     m_ReflectionCompression: 2
-  m_LightingDataAsset: {fileID: 0}
+  m_LightmapSnapshot: {fileID: 0}
   m_RuntimeCPUUsage: 25
 --- !u!196 &4
 NavMeshSettings:
@@ -74,15 +74,15 @@ NavMeshSettings:
   m_ObjectHideFlags: 0
   m_BuildSettings:
     serializedVersion: 2
-    agentRadius: 0.5
+    agentRadius: .5
     agentHeight: 2
     agentSlope: 45
-    agentClimb: 0.4
+    agentClimb: .400000006
     ledgeDropHeight: 0
     maxJumpAcrossDistance: 0
     accuratePlacement: 0
     minRegionArea: 2
-    cellSize: 0.16666667
+    cellSize: .166666672
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
 --- !u!1001 &301470121
@@ -98,7 +98,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 432540, guid: 877e564d381f2814c8fb85dac7625d6b, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 2.69
+      value: 2.69000006
       objectReference: {fileID: 0}
     - target: {fileID: 432540, guid: 877e564d381f2814c8fb85dac7625d6b, type: 2}
       propertyPath: m_LocalPosition.z
@@ -123,10 +123,6 @@ Prefab:
     - target: {fileID: 432540, guid: 877e564d381f2814c8fb85dac7625d6b, type: 2}
       propertyPath: m_RootOrder
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11492688, guid: 877e564d381f2814c8fb85dac7625d6b, type: 2}
-      propertyPath: jumpingThreshold
-      value: 0.14
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 877e564d381f2814c8fb85dac7625d6b, type: 2}
@@ -161,9 +157,9 @@ MonoBehaviour:
   layer1_y: 0
   layer2_y: 0
   layer3_y: 0
-  speed1: 0.001
-  speed2: 0.01
-  speed3: 0.05
+  speed1: .00100000005
+  speed2: .00999999978
+  speed3: .0500000007
   layer1_buffer: 3
   layer2_buffer: 3
   layer3_buffer: 3
@@ -212,7 +208,7 @@ MonoBehaviour:
   leftIndex: 0
   rightIndex: 0
   Terrain_Prefabs:
-  - {fileID: 100450, guid: b464bf9475309b045b5371aa34021d98, type: 2}
+  - {fileID: 143416, guid: 6f9fea072dd1c1f42a8c325bd39f6db7, type: 2}
   - {fileID: 191976, guid: a6b865abebb071845bd93ef95b68ca76, type: 2}
   - {fileID: 160216, guid: 5d04ee3224cb74348bdf5ff5bd7a7309, type: 2}
   - {fileID: 111214, guid: df3279c62871fc347aadac93f6b105fa, type: 2}
@@ -223,7 +219,7 @@ MonoBehaviour:
   Terrain_Flat: {fileID: 167418, guid: b33c21673f4b7314a9b6cfa6eb676c0e, type: 2}
   Terrain_Simons:
   - {fileID: 191976, guid: a6b865abebb071845bd93ef95b68ca76, type: 2}
-  screenSpeed: 0.15
+  screenSpeed: .150000006
   isPaused: 0
 --- !u!4 &1292202778
 Transform:
@@ -286,14 +282,14 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0.019607844}
+  m_BackGroundColor: {r: .192156866, g: .301960796, b: .474509805, a: .0196078438}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
+  near clip plane: .300000012
   far clip plane: 1000
   field of view: 60
   orthographic: 1
@@ -309,7 +305,7 @@ Camera:
   m_HDR: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
-  m_StereoSeparation: 0.022
+  m_StereoSeparation: .0219999999
   m_StereoMirrorMode: 0
 --- !u!4 &1398435188
 Transform:
