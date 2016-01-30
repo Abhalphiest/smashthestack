@@ -82,7 +82,7 @@ public class RunnerBehavior : MonoBehaviour
             _velocity.x = 0;
         }
 
-        GetComponent<CharacterController2D>().move(_velocity * Time.deltaTime - Vector2.left * 0.5f);
+        _characterController2D.move(_velocity * Time.deltaTime - Vector2.left * 0.5f);
 
         if (transform.position.y < -25)
         {

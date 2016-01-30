@@ -433,12 +433,13 @@ namespace Prime31
                 {
                     // apply the slopeModifier to slow our movement up the slope
                     var slopeModifier = slopeSpeedMultiplier.Evaluate(angle);
-                    deltaMovement.x *= slopeModifier;
+                    //deltaMovement.x *= slopeModifier;
 
                     // we dont set collisions on the sides for this since a slope is not technically a side collision.
                     // smooth y movement when we climb. we make the y movement equivalent to the actual y location that corresponds
                     // to our new x location using our good friend Pythagoras
-                    deltaMovement.y = Mathf.Abs(Mathf.Tan(angle * Mathf.Deg2Rad) * deltaMovement.x);
+                    float slopeMovement = deltaMovement.x - _raycastHit.distance;
+                    deltaMovement.y = slopeMovement / Mathf.Abs(Mathf.Tan(angle * Mathf.Deg2Rad));
                     var isGoingRight = deltaMovement.x > 0;
 
                     // safety check. we fire a ray in the direction of movement just in case the diagonal we calculated above ends up
@@ -446,9 +447,16 @@ namespace Prime31
                     var ray = isGoingRight ? _raycastOrigins.bottomRight : _raycastOrigins.bottomLeft;
                     RaycastHit2D raycastHit;
                     if (collisionState.wasGroundedLastFrame)
-                        raycastHit = Physics2D.Raycast(ray, deltaMovement.normalized, deltaMovement.magnitude, platformMask);
+                    {
+                        raycastHit = Physics2D.Raycast(ray, deltaMovement.normalized, deltaMovement.magnitude,
+                            platformMask);
+                        DrawRay(ray, deltaMovement.normalized, Color.green);
+                    }
                     else
+                    {
                         raycastHit = Physics2D.Raycast(ray, deltaMovement.normalized, deltaMovement.magnitude, platformMask & ~oneWayPlatformMask);
+                        DrawRay(ray, deltaMovement.normalized, Color.cyan);
+                    }
 
                     if (raycastHit)
                     {

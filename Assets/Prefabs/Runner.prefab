@@ -152,7 +152,7 @@ MonoBehaviour:
   JumpPower: 24
   Gravity: 72
   BaseX: 1.37
-  XResetSpeed: 2
+  XResetSpeed: 3
   Paused: 0
 --- !u!114 &11492688
 MonoBehaviour:
