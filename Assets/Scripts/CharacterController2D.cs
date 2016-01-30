@@ -3,7 +3,7 @@ using UnityEngine;
 using System;
 using System.Collections.Generic;
 
-// Code from https://github.com/prime31/CharacterController2D
+// Code based on https://github.com/prime31/CharacterController2D
 // (CC BY-NC-SA 3.0)
 
 namespace Prime31
