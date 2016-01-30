@@ -91,10 +91,11 @@ public class Simon : MonoBehaviour {
             else
             {
                 simonListIndex = 0;
-                seconds = 0.0f;   
+                seconds = 0.0f;
+                return 1;
             }
            
-            return 1;
+            
 
         }
         return -1;

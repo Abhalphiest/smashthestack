@@ -124,6 +124,14 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6154196, guid: 877e564d381f2814c8fb85dac7625d6b, type: 2}
+      propertyPath: m_Size.x
+      value: .0799999982
+      objectReference: {fileID: 0}
+    - target: {fileID: 11407058, guid: 877e564d381f2814c8fb85dac7625d6b, type: 2}
+      propertyPath: BaseX
+      value: -1.37
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 877e564d381f2814c8fb85dac7625d6b, type: 2}
   m_IsPrefabParent: 0
@@ -1351,7 +1359,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!1 &1549619666
 GameObject:
   m_ObjectHideFlags: 0
@@ -2500,6 +2508,38 @@ Prefab:
     - target: {fileID: 491626, guid: c27a7a97f4b96e34ba8c441b490ca493, type: 2}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11488820, guid: c27a7a97f4b96e34ba8c441b490ca493, type: 2}
+      propertyPath: Terrain_Prefabs.Array.data[2]
+      value: 
+      objectReference: {fileID: 160560, guid: 790db3e4c495b8a4b9000c259090c842, type: 2}
+    - target: {fileID: 11488820, guid: c27a7a97f4b96e34ba8c441b490ca493, type: 2}
+      propertyPath: Terrain_Prefabs.Array.data[3]
+      value: 
+      objectReference: {fileID: 178114, guid: e895b9bdf39476d43a7ccb91cc267117, type: 2}
+    - target: {fileID: 11488820, guid: c27a7a97f4b96e34ba8c441b490ca493, type: 2}
+      propertyPath: Terrain_Prefabs.Array.data[4]
+      value: 
+      objectReference: {fileID: 188616, guid: ba30a4bcbcbaebb4e9d3b5e83b36b1c7, type: 2}
+    - target: {fileID: 11488820, guid: c27a7a97f4b96e34ba8c441b490ca493, type: 2}
+      propertyPath: Terrain_Prefabs.Array.data[5]
+      value: 
+      objectReference: {fileID: 111214, guid: df3279c62871fc347aadac93f6b105fa, type: 2}
+    - target: {fileID: 11488820, guid: c27a7a97f4b96e34ba8c441b490ca493, type: 2}
+      propertyPath: Terrain_Prefabs.Array.data[6]
+      value: 
+      objectReference: {fileID: 103914, guid: f0939b8a88a2da847afd53bc4f15915e, type: 2}
+    - target: {fileID: 11488820, guid: c27a7a97f4b96e34ba8c441b490ca493, type: 2}
+      propertyPath: Terrain_Prefabs.Array.data[7]
+      value: 
+      objectReference: {fileID: 111472, guid: b3119ff707a14d540a47caeeef73a7d1, type: 2}
+    - target: {fileID: 11488820, guid: c27a7a97f4b96e34ba8c441b490ca493, type: 2}
+      propertyPath: Terrain_Prefabs.Array.data[8]
+      value: 
+      objectReference: {fileID: 167418, guid: b33c21673f4b7314a9b6cfa6eb676c0e, type: 2}
+    - target: {fileID: 11488820, guid: c27a7a97f4b96e34ba8c441b490ca493, type: 2}
+      propertyPath: screenSpeed
+      value: .200000003
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c27a7a97f4b96e34ba8c441b490ca493, type: 2}

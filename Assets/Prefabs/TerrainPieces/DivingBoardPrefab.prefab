@@ -243,7 +243,7 @@ MonoBehaviour:
   leftPlatformHeight: 1
   rightPlatformHeight: 1
   weight: 100
-  freqMultiplier: .99999702
+  freqMultiplier: .999961913
   isLarge: 1
 --- !u!212 &21236520
 SpriteRenderer:
@@ -335,7 +335,7 @@ SpriteRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 189904}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_Materials:
@@ -394,6 +394,10 @@ Prefab:
     m_Modifications:
     - target: {fileID: 0}
       propertyPath: isLarge
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
