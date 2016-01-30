@@ -14,6 +14,39 @@ public class GameManagerScript : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        initSimon();
+        
+
+	}
+	
+	// Update is called once per frame
+	void FixedUpdate () {
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+
+            Debug.Log(simon(30.0f));
+        }
+        else if (Input.GetKeyDown(KeyCode.R))
+        {
+
+            Debug.Log("pushing red");
+            pushSimonColor(RED_INDEX);
+        }
+        else if (Input.GetKeyDown(KeyCode.B))
+        {
+
+            Debug.Log("pushing blue");
+            pushSimonColor(BLUE_INDEX);
+        }
+    }
+    
+    #region Simon
+
+    List<int> simonList; //currently implemented with ints, can be easily substituted for Unity Color. Only accept [0,5] integers.
+    Dictionary<int, KeyCode> keystrokeMap; //to get what keystroke is associated with each color
+    Color[] colorArr;
+    void initSimon()
+    {
         simonList = new List<int>(); //for simon minigame
         colorArr = new Color[6];
         colorArr[BLUE_INDEX] = new Color(32, 32, 255);//BLUE
@@ -22,19 +55,15 @@ public class GameManagerScript : MonoBehaviour {
         colorArr[GREEN_INDEX] = new Color(15, 133, 4); //GREEN
         colorArr[WHITE_INDEX] = new Color(255, 255, 255); //WHITE
         colorArr[BLACK_INDEX] = new Color(0, 0, 0); //BLACK
-	}
-	
-	// Update is called once per frame
-	void FixedUpdate () {
-	    
-	}
-
-
-    #region Simon
-
-    List<int> simonList; //currently implemented with ints, can be easily substituted for Unity Color. Only accept [0,5] integers.
-    Dictionary<int, KeyCode> keystrokeMap; //to get what keystroke is associated with each color
-    Color[] colorArr;
+        keystrokeMap = new Dictionary<int, KeyCode>();
+        keystrokeMap[BLUE_INDEX] = KeyCode.Alpha1;
+        keystrokeMap[RED_INDEX] = KeyCode.Alpha2;
+        keystrokeMap[YELLOW_INDEX] = KeyCode.Alpha3;
+        keystrokeMap[GREEN_INDEX] = KeyCode.Alpha4;
+        keystrokeMap[WHITE_INDEX] = KeyCode.Alpha5;
+        keystrokeMap[BLACK_INDEX] = KeyCode.Alpha6;
+    }
+ 
     /// <summary>
     /// simon runs the memory minigame
     /// </summary>
@@ -45,36 +74,40 @@ public class GameManagerScript : MonoBehaviour {
         bool complete = false; //have they finished?
         float time = 0.0f; //the time elapsed
         int listIndex = 0; //index of what color we're on
+        Debug.Log("starting simon");
         while(time < p_seconds)
         {
-           
 
 
-            if(listIndex < simonList.Count)
+
+            if (listIndex < simonList.Count)
             {
-                
-                //if correct key
-                if (Input.GetKeyDown(keystrokeMap[simonList[listIndex]]))
+                if (Input.anyKey)
                 {
-                    //display color
-                    flashColor(simonList[listIndex]);
-                    listIndex++;
+                    //if correct key
+                    if (Input.GetKeyDown(keystrokeMap[simonList[listIndex]]))
+                    {
+                        Debug.Log("correct");
+                        //display color
+                        flashColor(simonList[listIndex]);
+                        listIndex++;
+                    }
+                    //else
+                    else
+                    {
+                        Debug.Log("wrong");
+                        //let them know it reset
+                        flashError();
+                        listIndex = 0;
+                    }
+
                 }
-                //else
                 else
                 {
-                    //let them know it reset
-                    flashError();
-                    listIndex = 0;
+                    complete = true;
+                    break; //better to break out than add a second check to the while loop
                 }
-
             }
-            else
-            {
-                complete = true;
-                break; //better to break out than add a second check to the while loop
-            }
-
             time += Time.deltaTime; //increment our time clock
         }
 
