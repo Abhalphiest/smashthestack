@@ -25,9 +25,11 @@ public class TerrainManager : MonoBehaviour {
     private GameObject player;
     public bool isPaused = false;
     public bool success = false;
+    private Simon simon;
 
     void Start()
     {
+        simon = GetComponent<Simon>();
         player = GameObject.FindGameObjectWithTag("Player");
         terrainCounter = 0;
         // Setup the prefabs data
@@ -137,6 +139,7 @@ public class TerrainManager : MonoBehaviour {
             terrainCounter = 0;
             newPiece = Instantiate(Simon_Terrain, position, Quaternion.identity) as GameObject;
             curr_Simon = newPiece;
+            simon.Generate();
             success = false;
         }
         return newPiece.GetComponent<TerrainData>();
