@@ -10,7 +10,7 @@ public class GameManagerScript : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 	
 	}
 
@@ -18,7 +18,7 @@ public class GameManagerScript : MonoBehaviour {
     #region Simon
 
     List<int> simonList; //currently implemented with ints, can be easily substituted for Unity Color
-
+    
     /// <summary>
     /// simon runs the memory minigame
     /// </summary>
@@ -31,7 +31,15 @@ public class GameManagerScript : MonoBehaviour {
         int listIndex; //index of what color we're on
         while(time < p_seconds)
         {
-            if(listIndex)
+            if(listIndex < simonList.Count)
+            {
+
+            }
+            else
+            {
+                complete = true;
+                break; //better to break out than add a second check to the while loop
+            }
 
 
         }
