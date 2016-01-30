@@ -79,7 +79,7 @@ public class Background : MonoBehaviour {
         {
             GameObject temp = layer1List[0];
             layer1List.RemoveAt(0);
-            temp.transform.position = new Vector3(moveTo, layer1_y, 5);
+            temp.transform.position = new Vector3(moveTo, layer1_y, temp.transform.position.z);
             layer1List.Add(temp);
         }
         moveTo = resetPos + (layer2UnityWidth * layer2_buffer);
@@ -88,7 +88,7 @@ public class Background : MonoBehaviour {
         {
             GameObject temp = layer2List[0];
             layer2List.RemoveAt(0);
-            temp.transform.position = new Vector3(moveTo, layer2_y, 4);
+            temp.transform.position = new Vector3(moveTo, layer2_y, temp.transform.position.z);
             layer2List.Add(temp);
         }
         moveTo = resetPos + (layer3UnityWidth * layer3_buffer);
@@ -97,7 +97,7 @@ public class Background : MonoBehaviour {
         {
             GameObject temp = layer3List[0];
             layer3List.RemoveAt(0);
-            temp.transform.position = new Vector3(moveTo, layer3_y, 3);
+            temp.transform.position = new Vector3(moveTo, layer3_y, temp.transform.position.z);
             layer3List.Add(temp);
         }
     }
