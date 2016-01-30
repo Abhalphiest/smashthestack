@@ -26,7 +26,7 @@ public class TerrainManager : MonoBehaviour {
 
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("player");
+        player = GameObject.FindGameObjectWithTag("Player");
         terrainCounter = 0;
         // Setup the prefabs data
         Terrain_Prefabs_Data = new TerrainData[Terrain_Prefabs.Length];
