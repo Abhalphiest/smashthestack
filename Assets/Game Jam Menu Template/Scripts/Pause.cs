@@ -56,6 +56,4 @@ public class Pause : MonoBehaviour {
 		//call the HidePausePanel function of the ShowPanels script
 		showPanels.HidePausePanel ();
 	}
-
-
 }
