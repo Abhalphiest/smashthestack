@@ -26,7 +26,8 @@ public class Simon : MonoBehaviour {
     float seconds = 0.0f;
 
     public Texture2D emptyProgressBar;
-    public Texture2D fullProgressBar;
+    public Texture2D greenFill;
+    public Texture2D redFill;
 
     private bool timerRunning = false;
     private float maxTimerCount; //seconds you start with
@@ -48,18 +49,12 @@ public class Simon : MonoBehaviour {
         if (seconds > 0)
         {
             Debug.Log("LOADING BAR APPEARS");
-            Debug.Log(seconds);
-            GUI.DrawTexture(new Rect(timerXPos, timerYPos, timerWidth, timerHeight), emptyProgressBar); //Red bar
-            GUI.DrawTexture(new Rect(timerXPos, timerYPos, (seconds/maxTimerCount) * timerWidth, timerHeight), fullProgressBar); //Green bar
+            GUI.DrawTexture(new Rect(timerXPos, timerYPos, timerWidth, timerHeight), emptyProgressBar); //Empty progress bar
+            GUI.DrawTexture(new Rect(timerXPos, timerYPos, timerWidth, timerHeight), redFill); //red fill
+            GUI.DrawTexture(new Rect(timerXPos, timerYPos, (seconds/maxTimerCount) * timerWidth, timerHeight), greenFill); //green fill
             //GUI.TextArea(new Rect(timerXPos + timerWidth/2 - textAreaWidth/2, timerYPos, textAreaWidth, timerHeight), (10 - (int)timerCount).ToString());
         }
     }
-
-    /*
-    TimerWidth = max width of the timer
-    Seconds = value that goes from 10 -> 0
-    MaxTimerCount = 10
-    */
 
     public Sprite LastSprite
     {
