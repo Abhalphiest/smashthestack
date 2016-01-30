@@ -17,19 +17,21 @@ public class Simon : MonoBehaviour {
     public const int BLACK_INDEX = 5;
     #endregion
 
+    //textures for totem
     public Sprite[] Sprites;
+    //textures for progress bar
+    public Texture2D emptyProgressBar;
+    public Texture2D greenFill;
+    public Texture2D redFill;
+    //sound effects for feedback
+    public AudioClip[] feedback; // 0=F, 1=G, 2=H=Blue, 3=J=Red, 4=K=Yellow, 5=L=Green
+    AudioSource audio;
 
     List<int> simonList; //currently implemented with ints, can be easily substituted for Unity Color. Only accept [0,5] integers.
     Dictionary<int, KeyCode> keystrokeMap; //to get what keystroke is associated with each color
     Color[] colorArr;
     int simonListIndex = 0; //index of what color we're on
     float seconds = 0.0f;
-
-    public Texture2D emptyProgressBar;
-    public Texture2D greenFill;
-    public Texture2D redFill;
-
-    private bool timerRunning = false;
     private float maxTimerCount; //seconds you start with
 
     //timer positioning
@@ -103,12 +105,30 @@ public class Simon : MonoBehaviour {
     }
     void flashColor(int p_colorIndex)
     {
+        // 0=F, 1=G, 2=H=Blue, 3=J=Red, 4=K=Yellow, 5=L=Green
+
         //to be changed later, obviously
         if (p_colorIndex >= 0 && p_colorIndex < 6)
         {
             print(colorArr[p_colorIndex]);
            
             Camera.main.backgroundColor = colorArr[p_colorIndex];
+
+            switch (p_colorIndex)
+            {
+                case 0: //Blue, H, Audio File 2
+                    audio.PlayOneShot(feedback[2]);
+                    break;
+                case 1: //Red, J, Audio File 3
+                    audio.PlayOneShot(feedback[3]);
+                    break;
+                case 2: //Yellow, K, Audio File 4
+                    audio.PlayOneShot(feedback[4]);
+                    break;
+                case 3: //Green, L, Audio File5
+                    audio.PlayOneShot(feedback[5]);
+                    break;
+            }
         }
     }
     void flashError()
@@ -139,6 +159,8 @@ public class Simon : MonoBehaviour {
         keystrokeMap[WHITE_INDEX] = KeyCode.F;
         keystrokeMap[BLACK_INDEX] = KeyCode.G;
         Camera.main.clearFlags = CameraClearFlags.Color;
+
+        audio = GetComponent<AudioSource>();
     }
 	
 	// Update is called once per frame
