@@ -140,6 +140,7 @@ public class TerrainManager : MonoBehaviour {
             newPiece = Instantiate(Simon_Terrain, position, Quaternion.identity) as GameObject;
             curr_Simon = newPiece;
             simon.Generate();
+            curr_Simon.transform.FindChild("NewLetter").GetComponent<SpriteRenderer>().sprite = simon.LastSprite;
             success = false;
         }
         return newPiece.GetComponent<TerrainData>();
