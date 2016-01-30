@@ -210,7 +210,7 @@ MonoBehaviour:
   leftPlatformHeight: 1
   rightPlatformHeight: 1
   weight: 100
-  freqMultiplier: 1
+  freqMultiplier: .989355385
   isLarge: 0
 --- !u!212 &21240538
 SpriteRenderer:
