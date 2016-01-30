@@ -39,7 +39,7 @@ public class Background : MonoBehaviour {
         }
         for (int i = 0; i < layer3_buffer; i++)
         {
-            layer3List.Add((GameObject)Instantiate(layer3, new Vector3(14 * i, layer3_y, 3), Quaternion.identity));
+            layer3List.Add((GameObject)Instantiate(layer3, new Vector3(20 * i, layer3_y, 3), Quaternion.identity));
         }
     }
 
@@ -82,7 +82,7 @@ public class Background : MonoBehaviour {
             temp.transform.position = new Vector3(moveTo, layer2_y, 4);
             layer2List.Add(temp);
         }
-        moveTo = resetPos + (14 * layer3_buffer);
+        moveTo = resetPos + (20 * layer3_buffer);
         //if parallax layer 3 moves too far left, move it back around to the right
         if (layer3List[0].transform.position.x < resetPos)
         {
