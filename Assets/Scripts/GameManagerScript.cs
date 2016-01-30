@@ -10,7 +10,6 @@ public class GameManagerScript : MonoBehaviour {
     void Start () {
         player = GameObject.FindGameObjectWithTag("Player");
         simon = GetComponent<Simon>();
-        simon.pushSimonColor(Simon.RED_INDEX);
 	}
 	
 	// Update is called once per frame

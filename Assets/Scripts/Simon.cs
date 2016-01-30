@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using System.Security.Cryptography;
 
 public class Simon : MonoBehaviour {
 
@@ -10,9 +12,12 @@ public class Simon : MonoBehaviour {
     public const int RED_INDEX = 1;
     public const int YELLOW_INDEX = 2;
     public const int GREEN_INDEX = 3;
+    public const int MAX_INDEX = 4;
     public const int WHITE_INDEX = 4;
     public const int BLACK_INDEX = 5;
     #endregion
+
+    public Sprite[] Sprites;
 
     List<int> simonList; //currently implemented with ints, can be easily substituted for Unity Color. Only accept [0,5] integers.
     Dictionary<int, KeyCode> keystrokeMap; //to get what keystroke is associated with each color
@@ -23,6 +28,10 @@ public class Simon : MonoBehaviour {
     /// simon runs the memory minigame
     /// </summary>
     
+    public Sprite LastSprite
+    {
+        get { return Sprites[simonList.Last()]; } }
+
     int simon()
     {
         if (seconds > 0)
@@ -94,12 +103,12 @@ public class Simon : MonoBehaviour {
         colorArr[WHITE_INDEX] = new Color(1.0f, 1.0f, 1.0f); //WHITE
         colorArr[BLACK_INDEX] = new Color(0, 0, 0); //BLACK
         keystrokeMap = new Dictionary<int, KeyCode>();
-        keystrokeMap[BLUE_INDEX] = KeyCode.Alpha1;
-        keystrokeMap[RED_INDEX] = KeyCode.Alpha2;
-        keystrokeMap[YELLOW_INDEX] = KeyCode.Alpha3;
-        keystrokeMap[GREEN_INDEX] = KeyCode.Alpha4;
-        keystrokeMap[WHITE_INDEX] = KeyCode.Alpha5;
-        keystrokeMap[BLACK_INDEX] = KeyCode.Alpha6;
+        keystrokeMap[BLUE_INDEX] = KeyCode.H;
+        keystrokeMap[RED_INDEX] = KeyCode.J;
+        keystrokeMap[YELLOW_INDEX] = KeyCode.K;
+        keystrokeMap[GREEN_INDEX] = KeyCode.L;
+        keystrokeMap[WHITE_INDEX] = KeyCode.F;
+        keystrokeMap[BLACK_INDEX] = KeyCode.G;
         Camera.main.clearFlags = CameraClearFlags.Color;
     }
 	
@@ -127,5 +136,10 @@ public class Simon : MonoBehaviour {
     public void startSimon(float p_seconds)
     {
         seconds = p_seconds;
+    }
+
+    public void Generate()
+    {
+        pushSimonColor(Random.Range(0, MAX_INDEX));
     }
 }

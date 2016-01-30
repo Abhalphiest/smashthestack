@@ -26,6 +26,8 @@ public class TerrainManager : MonoBehaviour {
     public bool isPaused = false;
     public bool success = false;
 
+    private Simon simon;
+
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -49,6 +51,8 @@ public class TerrainManager : MonoBehaviour {
             terrain[i] = newObject.GetComponent<TerrainData>();
             terrainCounter++;
         }
+
+        simon = GetComponent<Simon>();
     }
 
 	// Update is called once per frame
@@ -115,6 +119,8 @@ public class TerrainManager : MonoBehaviour {
             terrainCounter = 0;
             newPiece = Instantiate(Simon_Terrain, position, Quaternion.identity) as GameObject;
             curr_Simon = newPiece;
+            simon.Generate();
+            curr_Simon.transform.FindChild("NewLetter").GetComponent<SpriteRenderer>().sprite = simon.LastSprite;
         }
         return newPiece.GetComponent<TerrainData>();
     }

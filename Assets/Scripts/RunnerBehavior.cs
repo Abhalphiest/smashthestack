@@ -115,6 +115,7 @@ public class RunnerBehavior : MonoBehaviour
         if (transform.position.y < -25)
         {
             transform.position += 30 * Vector3.up;
+            transform.position += transform.position.x*Vector3.left;
         }
     }
 }

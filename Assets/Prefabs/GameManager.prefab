@@ -42,6 +42,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc71102070cd9cf4babbc23a091aa2f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Sprites:
+  - {fileID: 21300000, guid: 2ae4568ab727e184f98ae0198a137ff8, type: 3}
+  - {fileID: 21300000, guid: 63a65b3b92473eb478572f2ea88583ea, type: 3}
+  - {fileID: 21300000, guid: af21523258eacfe4c90bbe07aca057d4, type: 3}
+  - {fileID: 21300000, guid: 775d8547df35def4487a0f0b5ccdbf71, type: 3}
 --- !u!114 &11453846
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -56,9 +61,9 @@ MonoBehaviour:
   layer1_y: 0
   layer2_y: 0
   layer3_y: 0
-  speed1: .00100000005
-  speed2: .00999999978
-  speed3: .0500000007
+  speed1: 0.01
+  speed2: 0.1
+  speed3: 0.5
   layer1_buffer: 3
   layer2_buffer: 3
   layer3_buffer: 3
@@ -100,7 +105,7 @@ MonoBehaviour:
   Terrain_Flat: {fileID: 167418, guid: b33c21673f4b7314a9b6cfa6eb676c0e, type: 2}
   Simon_Terrain: {fileID: 143416, guid: 6f9fea072dd1c1f42a8c325bd39f6db7, type: 2}
   SimonSpacing: 25
-  screenSpeed: .200000003
+  screenSpeed: 0.2
   isPaused: 0
   success: 0
 --- !u!1001 &100100000
