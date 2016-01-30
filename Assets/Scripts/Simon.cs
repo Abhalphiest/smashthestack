@@ -50,7 +50,7 @@ public class Simon : MonoBehaviour {
     {
         if (seconds > 0)
         {
-            Debug.Log("LOADING BAR APPEARS");
+            //Debug.Log("LOADING BAR APPEARS");
             GUI.DrawTexture(new Rect(timerXPos, timerYPos, timerWidth, timerHeight), emptyProgressBar); //Empty progress bar
             GUI.DrawTexture(new Rect(timerXPos, timerYPos, timerWidth, timerHeight), redFill); //red fill
             GUI.DrawTexture(new Rect(timerXPos, timerYPos, (seconds/maxTimerCount) * timerWidth, timerHeight), greenFill); //green fill

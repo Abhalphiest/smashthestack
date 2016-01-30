@@ -124,14 +124,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 11453846, guid: c27a7a97f4b96e34ba8c441b490ca493, type: 2}
-      propertyPath: speed1
-      value: .150000006
-      objectReference: {fileID: 0}
-    - target: {fileID: 11453846, guid: c27a7a97f4b96e34ba8c441b490ca493, type: 2}
-      propertyPath: speed3
-      value: .5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c27a7a97f4b96e34ba8c441b490ca493, type: 2}
   m_IsPrefabParent: 0
@@ -263,29 +255,3 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
---- !u!1 &1965699331 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 192834, guid: c27a7a97f4b96e34ba8c441b490ca493, type: 2}
-  m_PrefabInternal: {fileID: 587401398}
---- !u!114 &1965699336
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1965699331}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4646a9958db4d84591e13da2d8dfb51, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  leftIndex: 0
-  rightIndex: 0
-  Terrain_Prefabs:
-  - {fileID: 111472, guid: b3119ff707a14d540a47caeeef73a7d1, type: 2}
-  - {fileID: 191976, guid: a6b865abebb071845bd93ef95b68ca76, type: 2}
-  - {fileID: 128876, guid: 5443f50f432d9bf49a37ddde9120b9f5, type: 2}
-  - {fileID: 167418, guid: b33c21673f4b7314a9b6cfa6eb676c0e, type: 2}
-  Terrain_Flat: {fileID: 167418, guid: b33c21673f4b7314a9b6cfa6eb676c0e, type: 2}
-  Terrain_Simons: []
-  screenSpeed: .100000001
-  isPaused: 0
