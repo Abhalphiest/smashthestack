@@ -136,7 +136,7 @@ MonoBehaviour:
   JumpPower: 24
   Gravity: 72
   BaseX: 1.37
-  XResetSpeed: 2
+  XResetSpeed: 3
   Paused: 0
 --- !u!114 &11492688
 MonoBehaviour:
@@ -160,8 +160,8 @@ MonoBehaviour:
   oneWayPlatformMask:
     serializedVersion: 2
     m_Bits: 0
-  slopeLimit: 30
-  jumpingThreshold: 0.07
+  slopeLimit: 60.8
+  jumpingThreshold: 0.14
   slopeSpeedMultiplier:
     serializedVersion: 2
     m_Curve:
