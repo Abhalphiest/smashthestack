@@ -8,7 +8,8 @@ public class RunnerBehavior : MonoBehaviour
 {
 
     public float MaxJumpTime = 0.5f;
-    public float JumpPower = 350f;
+    public float jetpackPower = 350f;
+    public float jumpPower = 350f;
     public float Gravity = 300f;
     public float BaseX = 0;
     public float XResetSpeed = 200f;
@@ -19,6 +20,7 @@ public class RunnerBehavior : MonoBehaviour
     private bool attacking = false;
     private float jumpTime = 0;
 
+
     private Rigidbody2D rigidBody;
 	// Use this for initialization
 	void Start () {
@@ -26,60 +28,72 @@ public class RunnerBehavior : MonoBehaviour
     }
 	void Update()
     {
-        if (Input.GetKeyDown(KeyCode.W))
+        if (Paused)
         {
+            return;
+        }
+        if (Input.GetKeyDown(KeyCode.W) && Math.Abs(rigidBody.velocity.y) < 0.15f)
+        {
+            rigidBody.AddForce(new Vector2(0.0f, jumpPower), ForceMode2D.Impulse);
             jumping = true;
             jumpTime = 0;
         }
-        if(Input.GetKeyDown(KeyCode.D))
+        if (Input.GetKeyDown(KeyCode.D))
         {
             //attack code
             attacking = true;
         }
-        if(Input.GetKeyDown(KeyCode.S))
+        if (Input.GetKeyDown(KeyCode.S))
         {
             //slide code
             sliding = true;
         }
-        if(Input.GetKeyUp(KeyCode.S))
+        if (Input.GetKeyUp(KeyCode.S))
         {
             sliding = false;
         }
-    }
-	// Update is called once per frame
-	void FixedUpdate () {
-
-	    if (Paused)
-	    {
-	        return;
-	    }        
-        if(jumping)
+        if (Input.GetKeyUp(KeyCode.W))
         {
-            
+            jumping = false;
+        }
+        if (jumping)
+        {
+
             jumpTime += Time.fixedDeltaTime;
-            rigidBody.AddForce(new Vector2(0.0f, JumpPower),ForceMode2D.Force);
-            
-            if (jumpTime > MaxJumpTime || !Input.GetKey(KeyCode.W))
+            rigidBody.AddForce(new Vector2(0.0f, jetpackPower * (MaxJumpTime - jumpTime/2.0f) / MaxJumpTime), ForceMode2D.Force);
+
+            if (jumpTime > MaxJumpTime)
             {
                 jumping = false;
             }
         }
-        if(sliding)
+        
+        rigidBody.AddForce(new Vector2(0.0f, -Gravity), ForceMode2D.Force);
+        
+        if (sliding)
         {
             //sliding logic
         }
-        if(attacking)
+        if (attacking)
         {
             //attackinglogic
         }
-	    if (transform.position.x < BaseX)
-	    {
+        if (transform.position.x < BaseX)
+        {
             rigidBody.AddForce(new Vector2(XResetSpeed, 0.0f), ForceMode2D.Force);
-	    }
+        }
         else
         {
             rigidBody.velocity = new Vector2(0.0f, rigidBody.velocity.y);
         }
-        rigidBody.AddForce(new Vector2(0.0f, -Gravity), ForceMode2D.Force);
+        
+    }
+	// Update is called once per frame
+	void FixedUpdate () {
+
+	      
+        
+        
+        
     }
 }
