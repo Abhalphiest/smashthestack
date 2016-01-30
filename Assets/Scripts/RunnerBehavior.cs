@@ -3,6 +3,7 @@ using UnityEngine;
 using System.Collections;
 using System.Text;
 using Prime31;
+using Random = UnityEngine.Random;
 
 public class RunnerBehavior : MonoBehaviour
 {
@@ -21,6 +22,8 @@ public class RunnerBehavior : MonoBehaviour
     private bool _sliding;
     private float _slideTime;
 
+    private SpriteRenderer _graphic;
+
 
     private CharacterController2D _characterController2D;
 
@@ -28,6 +31,7 @@ public class RunnerBehavior : MonoBehaviour
     void Start()
     {
         _characterController2D = GetComponent<CharacterController2D>();
+        _graphic = transform.FindChild("PlaceholderRunner").gameObject.GetComponent<SpriteRenderer>();
     }
 
     void Update()
@@ -117,5 +121,15 @@ public class RunnerBehavior : MonoBehaviour
             transform.position += 30 * Vector3.up;
             transform.position += transform.position.x*Vector3.left;
         }
+
+        if (!_jumping && !_sliding && _characterController2D.isGrounded && IsSkating())
+        {
+            GetComponentInChildren<ParticleSystem>().Emit(Random.Range(0, 10));
+        }
+    }
+
+    private bool IsSkating()
+    {
+        return _graphic.sprite.name.EndsWith("1") || _graphic.sprite.name.EndsWith("6");
     }
 }
