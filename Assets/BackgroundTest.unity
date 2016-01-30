@@ -85,6 +85,60 @@ NavMeshSettings:
     cellSize: .166666672
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &301470121
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 432540, guid: 877e564d381f2814c8fb85dac7625d6b, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -5.53838158
+      objectReference: {fileID: 0}
+    - target: {fileID: 432540, guid: 877e564d381f2814c8fb85dac7625d6b, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -.615375876
+      objectReference: {fileID: 0}
+    - target: {fileID: 432540, guid: 877e564d381f2814c8fb85dac7625d6b, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 432540, guid: 877e564d381f2814c8fb85dac7625d6b, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 432540, guid: 877e564d381f2814c8fb85dac7625d6b, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 432540, guid: 877e564d381f2814c8fb85dac7625d6b, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 432540, guid: 877e564d381f2814c8fb85dac7625d6b, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 432540, guid: 877e564d381f2814c8fb85dac7625d6b, type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11407058, guid: 877e564d381f2814c8fb85dac7625d6b, type: 2}
+      propertyPath: JumpPower
+      value: 450
+      objectReference: {fileID: 0}
+    - target: {fileID: 11407058, guid: 877e564d381f2814c8fb85dac7625d6b, type: 2}
+      propertyPath: Gravity
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 11407058, guid: 877e564d381f2814c8fb85dac7625d6b, type: 2}
+      propertyPath: XResetSpeed
+      value: 135
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 877e564d381f2814c8fb85dac7625d6b, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &933795981
 GameObject:
   m_ObjectHideFlags: 0
@@ -283,45 +337,3 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
---- !u!1001 &1807501199
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 432540, guid: 877e564d381f2814c8fb85dac7625d6b, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -6.09781551
-      objectReference: {fileID: 0}
-    - target: {fileID: 432540, guid: 877e564d381f2814c8fb85dac7625d6b, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: .111887485
-      objectReference: {fileID: 0}
-    - target: {fileID: 432540, guid: 877e564d381f2814c8fb85dac7625d6b, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 432540, guid: 877e564d381f2814c8fb85dac7625d6b, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 432540, guid: 877e564d381f2814c8fb85dac7625d6b, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 432540, guid: 877e564d381f2814c8fb85dac7625d6b, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 432540, guid: 877e564d381f2814c8fb85dac7625d6b, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 432540, guid: 877e564d381f2814c8fb85dac7625d6b, type: 2}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 877e564d381f2814c8fb85dac7625d6b, type: 2}
-  m_IsPrefabParent: 0
