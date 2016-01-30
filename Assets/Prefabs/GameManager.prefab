@@ -87,8 +87,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4646a9958db4d84591e13da2d8dfb51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leftIndex: 5
-  rightIndex: 4
+  leftIndex: 0
+  rightIndex: 0
   Terrain_Prefabs:
   - {fileID: 100450, guid: b464bf9475309b045b5371aa34021d98, type: 2}
   - {fileID: 191976, guid: a6b865abebb071845bd93ef95b68ca76, type: 2}
@@ -97,12 +97,11 @@ MonoBehaviour:
   - {fileID: 103914, guid: f0939b8a88a2da847afd53bc4f15915e, type: 2}
   - {fileID: 111472, guid: b3119ff707a14d540a47caeeef73a7d1, type: 2}
   - {fileID: 167418, guid: b33c21673f4b7314a9b6cfa6eb676c0e, type: 2}
-  - {fileID: 192980, guid: b3bbfa732f1b5604ab2c353106fd49d8, type: 2}
   Terrain_Flat: {fileID: 167418, guid: b33c21673f4b7314a9b6cfa6eb676c0e, type: 2}
   Simon_Terrain: {fileID: 143416, guid: 6f9fea072dd1c1f42a8c325bd39f6db7, type: 2}
   SimonSpacing: 25
   screenSpeed: .200000003
-  isPaused: 1
+  isPaused: 0
   success: 0
 --- !u!1001 &100100000
 Prefab:
