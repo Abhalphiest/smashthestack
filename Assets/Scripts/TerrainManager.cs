@@ -26,8 +26,6 @@ public class TerrainManager : MonoBehaviour {
     public bool isPaused = false;
     public bool success = false;
 
-    private Simon simon;
-
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -71,7 +69,7 @@ public class TerrainManager : MonoBehaviour {
             
         }
 
-        simon = GetComponent<Simon>();
+        rightIndex = MAX_TERRAIN_PIECES - 1;
         
     }
 
@@ -119,27 +117,26 @@ public class TerrainManager : MonoBehaviour {
     {
         int myRandIndex = GetRandIndex();
         Terrain_Prefabs_Data[myRandIndex].freqMultiplier *= 0.1f;
-
         // Width of left piece
-        int leftWidth = terrain[rightIndex].isLarge ? WIDE_PIECE_WIDTH / 2 :  NORMAL_PIECE_WIDTH / 2;
+        int leftWidth = terrain[rightIndex].isLarge ? WIDE_PIECE_WIDTH: NORMAL_PIECE_WIDTH;
 
-        // Width of right piece (gonna put the random stuff in here)
-        int rightWidth = Terrain_Prefabs[myRandIndex].GetComponent<TerrainData>().isLarge ? WIDE_PIECE_WIDTH / 2 : NORMAL_PIECE_WIDTH / 2;
-       
-        Vector3 position = terrain[rightIndex].transform.position + new Vector3(leftWidth + rightWidth, 0, 0);
         GameObject newPiece;
         if (terrainCounter < SimonSpacing)
         {
+            
+
+            // Width of right piece (gonna put the random stuff in here)
+            int rightWidth = Terrain_Prefabs[myRandIndex].GetComponent<TerrainData>().isLarge ? WIDE_PIECE_WIDTH : NORMAL_PIECE_WIDTH;
+            Vector3 position = terrain[rightIndex].transform.position + new Vector3(leftWidth + rightWidth, 0, 0);
             newPiece = Instantiate(Terrain_Prefabs[myRandIndex], position, Quaternion.identity) as GameObject;
             terrainCounter++;
         }
         else
         {
+            Vector3 position = terrain[rightIndex].transform.position + new Vector3(leftWidth + NORMAL_PIECE_WIDTH, 0, 0);
             terrainCounter = 0;
             newPiece = Instantiate(Simon_Terrain, position, Quaternion.identity) as GameObject;
             curr_Simon = newPiece;
-            simon.Generate();
-            curr_Simon.transform.FindChild("NewLetter").GetComponent<SpriteRenderer>().sprite = simon.LastSprite;
             success = false;
         }
         return newPiece.GetComponent<TerrainData>();

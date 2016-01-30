@@ -82,7 +82,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &425932
 Transform:
   m_ObjectHideFlags: 1
@@ -200,7 +200,7 @@ MonoBehaviour:
   leftPlatformHeight: 3
   rightPlatformHeight: 5
   weight: 100
-  freqMultiplier: .943236709
+  freqMultiplier: .999842823
   isLarge: 0
 --- !u!212 &21204642
 SpriteRenderer:
