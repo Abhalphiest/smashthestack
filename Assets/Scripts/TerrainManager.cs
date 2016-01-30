@@ -40,15 +40,35 @@ public class TerrainManager : MonoBehaviour {
         // Initialize Data
         terrain = new TerrainData[MAX_TERRAIN_PIECES];
         leftIndex = 0;
-        rightIndex = MAX_TERRAIN_PIECES - 1;
 
+        
+        int xoffset = 0;
         // Spawn the starting terrain.
         for (int i = 0; i < MAX_TERRAIN_PIECES; ++i)
         {
-            GameObject newObject = Instantiate(Terrain_Flat, new Vector3(-WIDE_PIECE_WIDTH + i * WIDE_PIECE_WIDTH, 0, 0), Quaternion.identity) as GameObject;
-            terrain[i] = newObject.GetComponent<TerrainData>();
-            terrainCounter++;
+            if (i < 4)
+            {
+
+                GameObject newObject = Instantiate(Terrain_Flat, new Vector3(xoffset, 0, 0), Quaternion.identity) as GameObject;
+                xoffset += WIDE_PIECE_WIDTH;
+                terrain[i] = newObject.GetComponent<TerrainData>();
+                terrainCounter++;
+            }
+            else
+            {
+                int myRandIndex = GetRandIndex();
+                Terrain_Prefabs_Data[myRandIndex].freqMultiplier *= 0.1f;
+
+                // Width of left piece
+                GameObject newObject = Instantiate(Terrain_Prefabs[myRandIndex], new Vector3(xoffset, 0, 0), Quaternion.identity) as GameObject;
+                xoffset += Terrain_Prefabs[myRandIndex].GetComponent<TerrainData>().isLarge ? WIDE_PIECE_WIDTH : NORMAL_PIECE_WIDTH;
+                terrain[i] = newObject.GetComponent<TerrainData>();
+                terrainCounter++;
+            }
+            rightIndex = i;
+            
         }
+        
     }
 
 	// Update is called once per frame

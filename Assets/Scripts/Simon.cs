@@ -55,10 +55,11 @@ public class Simon : MonoBehaviour {
             {
                 simonListIndex = 0;
                 seconds = 0.0f;
-                return 1;
+                
             }
             seconds -= Time.deltaTime; //increment our time clock
-            
+            return 1;
+
         }
         return -1;
 
