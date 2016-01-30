@@ -24,10 +24,43 @@ public class Simon : MonoBehaviour {
     Color[] colorArr;
     int simonListIndex = 0; //index of what color we're on
     float seconds = 0.0f;
+
+    public Texture2D emptyProgressBar;
+    public Texture2D fullProgressBar;
+
+    private bool timerRunning = false;
+    private float maxTimerCount; //seconds you start with
+
+    //timer positioning
+    private float timerWidth = 300;
+    private float timerHeight = 50.0f;
+    private float timerXPos = 0;
+    private float timerYPos = 0;
+    private float textAreaWidth = 50;
+
     /// <summary>
     /// simon runs the memory minigame
     /// </summary>
-    
+
+    //Handle the loading bar using OnGUI
+    void OnGUI()
+    {
+        if (seconds > 0)
+        {
+            Debug.Log("LOADING BAR APPEARS");
+            Debug.Log(seconds);
+            GUI.DrawTexture(new Rect(timerXPos, timerYPos, timerWidth, timerHeight), emptyProgressBar); //Red bar
+            GUI.DrawTexture(new Rect(timerXPos, timerYPos, (seconds/maxTimerCount) * timerWidth, timerHeight), fullProgressBar); //Green bar
+            //GUI.TextArea(new Rect(timerXPos + timerWidth/2 - textAreaWidth/2, timerYPos, textAreaWidth, timerHeight), (10 - (int)timerCount).ToString());
+        }
+    }
+
+    /*
+    TimerWidth = max width of the timer
+    Seconds = value that goes from 10 -> 0
+    MaxTimerCount = 10
+    */
+
     public Sprite LastSprite
     {
         get { return Sprites[simonList.Last()]; } }
@@ -56,17 +89,16 @@ public class Simon : MonoBehaviour {
                         flashError();
                         simonListIndex = 0;
                     }
-
                 }
+                seconds -= Time.deltaTime; //increment our time clock
                 return 0;
             }
             else
             {
                 simonListIndex = 0;
-                seconds = 0.0f;
-                
+                seconds = 0.0f;   
             }
-            seconds -= Time.deltaTime; //increment our time clock
+           
             return 1;
 
         }
@@ -137,6 +169,7 @@ public class Simon : MonoBehaviour {
     public void startSimon(float p_seconds)
     {
         seconds = p_seconds;
+        maxTimerCount = p_seconds;
     }
 
     public void Generate()
