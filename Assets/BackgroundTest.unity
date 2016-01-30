@@ -925,7 +925,6 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
       minMaxState: 0
->>>>>>> 3044aeb7508c1a376f21b5994c7ee93f0ef5d38a
     curve:
       scalar: 3.4906585
       maxCurve:

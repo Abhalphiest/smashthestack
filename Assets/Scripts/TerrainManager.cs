@@ -118,7 +118,7 @@ public class TerrainManager : MonoBehaviour {
         int myRandIndex = GetRandIndex();
         Terrain_Prefabs_Data[myRandIndex].freqMultiplier *= 0.1f;
         // Width of left piece
-        int leftWidth = terrain[rightIndex].isLarge ? WIDE_PIECE_WIDTH: NORMAL_PIECE_WIDTH;
+        int leftWidth = terrain[rightIndex].isLarge ? WIDE_PIECE_WIDTH/2: NORMAL_PIECE_WIDTH/2;
 
         GameObject newPiece;
         if (terrainCounter < SimonSpacing)
@@ -126,7 +126,7 @@ public class TerrainManager : MonoBehaviour {
             
 
             // Width of right piece (gonna put the random stuff in here)
-            int rightWidth = Terrain_Prefabs[myRandIndex].GetComponent<TerrainData>().isLarge ? WIDE_PIECE_WIDTH : NORMAL_PIECE_WIDTH;
+            int rightWidth = Terrain_Prefabs[myRandIndex].GetComponent<TerrainData>().isLarge ? WIDE_PIECE_WIDTH/2 : NORMAL_PIECE_WIDTH/2;
             Vector3 position = terrain[rightIndex].transform.position + new Vector3(leftWidth + rightWidth, 0, 0);
             newPiece = Instantiate(Terrain_Prefabs[myRandIndex], position, Quaternion.identity) as GameObject;
             terrainCounter++;
