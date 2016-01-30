@@ -114,8 +114,8 @@ MonoBehaviour:
   leftPlatformHeight: 1
   rightPlatformHeight: 1
   weight: 100
-  freqMultiplier: 1
-  isLarge: 1
+  freqMultiplier: .312750041
+  isLarge: 0
 --- !u!212 &21223180
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -178,7 +178,15 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: freqMultiplier
+      value: .327300429
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: isLarge
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 167418}

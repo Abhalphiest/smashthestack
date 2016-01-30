@@ -124,6 +124,14 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11453846, guid: c27a7a97f4b96e34ba8c441b490ca493, type: 2}
+      propertyPath: speed1
+      value: .150000006
+      objectReference: {fileID: 0}
+    - target: {fileID: 11453846, guid: c27a7a97f4b96e34ba8c441b490ca493, type: 2}
+      propertyPath: speed3
+      value: .5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c27a7a97f4b96e34ba8c441b490ca493, type: 2}
   m_IsPrefabParent: 0
@@ -166,7 +174,32 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 5012092, guid: 877e564d381f2814c8fb85dac7625d6b, type: 2}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5012092, guid: 877e564d381f2814c8fb85dac7625d6b, type: 2}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5012092, guid: 877e564d381f2814c8fb85dac7625d6b, type: 2}
+      propertyPath: m_GravityScale
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11407058, guid: 877e564d381f2814c8fb85dac7625d6b, type: 2}
+      propertyPath: JumpPower
+      value: 450
+      objectReference: {fileID: 0}
+    - target: {fileID: 11407058, guid: 877e564d381f2814c8fb85dac7625d6b, type: 2}
+      propertyPath: Gravity
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 11407058, guid: 877e564d381f2814c8fb85dac7625d6b, type: 2}
+      propertyPath: XResetSpeed
+      value: 135
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 0}
   m_ParentPrefab: {fileID: 100100000, guid: 877e564d381f2814c8fb85dac7625d6b, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1012526735
@@ -273,6 +306,9 @@ MonoBehaviour:
   leftIndex: 0
   rightIndex: 0
   Terrain_Prefabs:
+  - {fileID: 111472, guid: b3119ff707a14d540a47caeeef73a7d1, type: 2}
+  - {fileID: 191976, guid: a6b865abebb071845bd93ef95b68ca76, type: 2}
+  - {fileID: 128876, guid: 5443f50f432d9bf49a37ddde9120b9f5, type: 2}
   - {fileID: 167418, guid: b33c21673f4b7314a9b6cfa6eb676c0e, type: 2}
   Terrain_Flat: {fileID: 167418, guid: b33c21673f4b7314a9b6cfa6eb676c0e, type: 2}
   Terrain_Simons: []
