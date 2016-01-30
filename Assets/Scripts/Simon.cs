@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class Simon : MonoBehaviour {
 
-    public Camera camera;
+   
     #region Color Index Definitions
     const int BLUE_INDEX = 0;
     const int RED_INDEX = 1;
@@ -49,11 +49,11 @@ public class Simon : MonoBehaviour {
                     }
 
                 }
-            
             }
             else
             {
                 simonListIndex = 0;
+                seconds = 0.0f;
                 return true;
             }
             seconds -= Time.deltaTime; //increment our time clock
@@ -66,7 +66,11 @@ public class Simon : MonoBehaviour {
     {
         //to be changed later, obviously
         if (p_colorIndex >= 0 && p_colorIndex < 6)
-            camera.backgroundColor = colorArr[p_colorIndex];
+        {
+            print(colorArr[p_colorIndex]);
+           
+            Camera.main.backgroundColor = colorArr[p_colorIndex];
+        }
     }
     void flashError()
     {
@@ -95,8 +99,8 @@ public class Simon : MonoBehaviour {
         keystrokeMap[GREEN_INDEX] = KeyCode.Alpha4;
         keystrokeMap[WHITE_INDEX] = KeyCode.Alpha5;
         keystrokeMap[BLACK_INDEX] = KeyCode.Alpha6;
-    
-}
+        Camera.main.clearFlags = CameraClearFlags.Color;
+    }
 	
 	// Update is called once per frame
 	void Update () {
