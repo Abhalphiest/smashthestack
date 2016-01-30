@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 425932}
   - 212: {fileID: 21204642}
   - 61: {fileID: 6158064}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: 3x1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27,7 +27,7 @@ GameObject:
   - 4: {fileID: 457778}
   - 212: {fileID: 21206922}
   - 61: {fileID: 6192932}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: 3x1 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -200,7 +200,7 @@ MonoBehaviour:
   leftPlatformHeight: 3
   rightPlatformHeight: 5
   weight: 100
-  freqMultiplier: .844974995
+  freqMultiplier: .943236709
   isLarge: 0
 --- !u!212 &21204642
 SpriteRenderer:
@@ -324,6 +324,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
