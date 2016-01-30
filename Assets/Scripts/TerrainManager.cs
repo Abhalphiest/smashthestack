@@ -107,7 +107,6 @@ public class TerrainManager : MonoBehaviour {
         if (terrainCounter < SimonSpacing)
         {
             newPiece = Instantiate(Terrain_Prefabs[myRandIndex], position, Quaternion.identity) as GameObject;
-            success = false;
             terrainCounter++;
         }
         else
@@ -115,6 +114,7 @@ public class TerrainManager : MonoBehaviour {
             terrainCounter = 0;
             newPiece = Instantiate(Simon_Terrain, position, Quaternion.identity) as GameObject;
             curr_Simon = newPiece;
+            success = false;
         }
         return newPiece.GetComponent<TerrainData>();
     }
