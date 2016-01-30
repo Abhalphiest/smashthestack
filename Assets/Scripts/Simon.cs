@@ -156,8 +156,8 @@ public class Simon : MonoBehaviour {
         keystrokeMap[RED_INDEX] = KeyCode.J;
         keystrokeMap[YELLOW_INDEX] = KeyCode.K;
         keystrokeMap[GREEN_INDEX] = KeyCode.L;
-        keystrokeMap[WHITE_INDEX] = KeyCode.F;
-        keystrokeMap[BLACK_INDEX] = KeyCode.G;
+        keystrokeMap[WHITE_INDEX] = KeyCode.U;
+        keystrokeMap[BLACK_INDEX] = KeyCode.I;
         Camera.main.clearFlags = CameraClearFlags.Color;
 
         audio = GetComponent<AudioSource>();
