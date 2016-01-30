@@ -38,7 +38,7 @@ public class GameManagerScript : MonoBehaviour {
     }
     public void SetPause()
     {
-        
+
             paused = true;
             GetComponent<Simon>().startSimon(10.0f);
             player.GetComponent<RunnerBehavior>().Paused = true;
