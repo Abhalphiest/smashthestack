@@ -15,13 +15,15 @@ public class RunnerBehavior : MonoBehaviour
     public float BaseX = 1.37f;
     public float XResetSpeed = 0.5f;
     public bool Paused;
+    public AudioClip[] feedback; // 0=jump, 1=land, 2=slide
+    new AudioSource audio;
 
     private bool _jumping = false;
     private float _jumpTime = 0;
     private Vector2 _velocity = Vector3.zero;
     private bool _sliding;
     private float _slideTime;
-
+    private bool _groundHitPlayed;
     private bool isDead = false;
 
     private SpriteRenderer _graphic;
@@ -32,6 +34,7 @@ public class RunnerBehavior : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        audio = GetComponent<AudioSource>();
         _characterController2D = GetComponent<CharacterController2D>();
         _graphic = transform.FindChild("PlaceholderRunner").gameObject.GetComponent<SpriteRenderer>();
     }
@@ -47,6 +50,10 @@ public class RunnerBehavior : MonoBehaviour
 
         if (_characterController2D.isGrounded)
         {
+            if (!_groundHitPlayed) {
+                audio.PlayOneShot(feedback[1]);
+                _groundHitPlayed = true;
+            }
             _velocity = Vector2.zero;
         }
         _velocity -= Gravity * Vector2.up * Time.deltaTime;
@@ -72,6 +79,7 @@ public class RunnerBehavior : MonoBehaviour
         {
             _slideTime = 0;
             _sliding = true;
+            audio.PlayOneShot(feedback[2]);
             var colliderSize = GetComponent<BoxCollider2D>().size;
             colliderSize.Set(colliderSize.y, colliderSize.x);
             GetComponent<BoxCollider2D>().size = colliderSize;
@@ -83,6 +91,8 @@ public class RunnerBehavior : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.W) && _characterController2D.isGrounded)
         {
+            _groundHitPlayed = true;
+            audio.PlayOneShot(feedback[0]);
             _jumping = true;
             _jumpTime = 0;
         }
