@@ -48,7 +48,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &189984
 GameObject:
   m_ObjectHideFlags: 0
@@ -157,7 +157,7 @@ MonoBehaviour:
   leftPlatformHeight: 5
   rightPlatformHeight: 5
   weight: 100
-  freqMultiplier: .114407264
+  freqMultiplier: .869640708
   isLarge: 0
 --- !u!212 &21225658
 SpriteRenderer:
@@ -252,7 +252,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 0}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Layer
