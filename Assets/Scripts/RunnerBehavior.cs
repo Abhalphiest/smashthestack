@@ -22,6 +22,8 @@ public class RunnerBehavior : MonoBehaviour
     private bool _sliding;
     private float _slideTime;
 
+    private bool isDead = false;
+
     private SpriteRenderer _graphic;
 
 
@@ -118,10 +120,12 @@ public class RunnerBehavior : MonoBehaviour
 
         if (transform.position.y < -25)
         {
+            if(!isDead)
+            {
+                StartCoroutine(gameOver());
+            }
             //transform.position += 30 * Vector3.up;
             //transform.position += transform.position.x*Vector3.left;
-            Destroy(GameObject.FindGameObjectWithTag("UI"));
-            Application.LoadLevel(0);
         }
 
         if (!_jumping && !_sliding && _characterController2D.isGrounded && IsSkating())
@@ -133,5 +137,13 @@ public class RunnerBehavior : MonoBehaviour
     private bool IsSkating()
     {
         return _graphic.sprite.name.EndsWith("1") || _graphic.sprite.name.EndsWith("6");
+    }
+
+    IEnumerator gameOver()
+    {
+        isDead = true;
+        yield return new WaitForSeconds(2);
+        Destroy(GameObject.FindGameObjectWithTag("UI"));
+        Application.LoadLevel(0);
     }
 }
