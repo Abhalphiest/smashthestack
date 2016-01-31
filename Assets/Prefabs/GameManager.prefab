@@ -117,8 +117,6 @@ MonoBehaviour:
   rightIndex: 0
   Terrain_Prefabs:
   - {fileID: 111472, guid: b3119ff707a14d540a47caeeef73a7d1, type: 2}
-  - {fileID: 191976, guid: a6b865abebb071845bd93ef95b68ca76, type: 2}
-  - {fileID: 128876, guid: 5443f50f432d9bf49a37ddde9120b9f5, type: 2}
   - {fileID: 167418, guid: b33c21673f4b7314a9b6cfa6eb676c0e, type: 2}
   Terrain_Flat: {fileID: 167418, guid: b33c21673f4b7314a9b6cfa6eb676c0e, type: 2}
   Simon_Terrain: {fileID: 143416, guid: 6f9fea072dd1c1f42a8c325bd39f6db7, type: 2}
@@ -194,6 +192,10 @@ Prefab:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 0}
+      propertyPath: Terrain_Prefabs.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
       propertyPath: layer2
       value: 
       objectReference: {fileID: 174562, guid: 4e77e9fd8e93f6344bd4b9bca14bece4, type: 2}
@@ -217,6 +219,18 @@ Prefab:
       propertyPath: speed3
       value: .0500000007
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: Terrain_Prefabs.Array.data[2]
+      value: 
+      objectReference: {fileID: 128876, guid: 5443f50f432d9bf49a37ddde9120b9f5, type: 2}
+    - target: {fileID: 0}
+      propertyPath: Terrain_Prefabs.Array.data[3]
+      value: 
+      objectReference: {fileID: 167418, guid: b33c21673f4b7314a9b6cfa6eb676c0e, type: 2}
+    - target: {fileID: 0}
+      propertyPath: Terrain_Prefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 167418, guid: b33c21673f4b7314a9b6cfa6eb676c0e, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 192834}

@@ -50,9 +50,11 @@ public class TerrainManager : MonoBehaviour {
         {
             if (i < 4)
             {
-
+                if (i != 0)
+                {
+                    xoffset += Terrain_Flat.GetComponent<TerrainData>().isLarge ? WIDE_PIECE_WIDTH / 2 : NORMAL_PIECE_WIDTH / 2;
+                }
                 GameObject newObject = Instantiate(Terrain_Flat, new Vector3(xoffset, 0, 0), Quaternion.identity) as GameObject;
-                xoffset += WIDE_PIECE_WIDTH;
                 terrain[i] = newObject.GetComponent<TerrainData>();
                 terrainCounter++;
             }
@@ -62,13 +64,14 @@ public class TerrainManager : MonoBehaviour {
                 Terrain_Prefabs_Data[myRandIndex].freqMultiplier *= 0.1f;
 
                 // Width of left piece
+                xoffset += Terrain_Prefabs[myRandIndex].GetComponent<TerrainData>().isLarge ? WIDE_PIECE_WIDTH / 2 : NORMAL_PIECE_WIDTH / 2;
                 GameObject newObject = Instantiate(Terrain_Prefabs[myRandIndex], new Vector3(xoffset, 0, 0), Quaternion.identity) as GameObject;
-                xoffset += Terrain_Prefabs[myRandIndex].GetComponent<TerrainData>().isLarge ? WIDE_PIECE_WIDTH : NORMAL_PIECE_WIDTH;
                 terrain[i] = newObject.GetComponent<TerrainData>();
                 terrainCounter++;
             }
             rightIndex = i;
-            
+            xoffset += terrain[rightIndex].isLarge ? WIDE_PIECE_WIDTH / 2 : NORMAL_PIECE_WIDTH / 2;
+
         }
 
         rightIndex = MAX_TERRAIN_PIECES - 1;
@@ -135,7 +138,7 @@ public class TerrainManager : MonoBehaviour {
         }
         else
         {
-            Vector3 position = terrain[rightIndex].transform.position + new Vector3(leftWidth + NORMAL_PIECE_WIDTH, 0, 0);
+            Vector3 position = terrain[rightIndex].transform.position + new Vector3(leftWidth + NORMAL_PIECE_WIDTH/2, 0, 0);
             terrainCounter = 0;
             newPiece = Instantiate(Simon_Terrain, position, Quaternion.identity) as GameObject;
             curr_Simon = newPiece;
