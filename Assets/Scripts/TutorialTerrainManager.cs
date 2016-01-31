@@ -156,6 +156,7 @@ public class TutorialTerrainManager : TerrainManager
 
         if (tutorialQueue.Count <= 0)
         {
+            Destroy(GameObject.FindGameObjectWithTag("UI"));
             Application.LoadLevel(0);
         }
 
