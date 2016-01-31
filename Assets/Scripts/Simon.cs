@@ -74,9 +74,9 @@ public class Simon : MonoBehaviour {
                     {
                         //let them know it reset
                         flashError();
-                        while (recordContent.transform.childCount > 0)
+                        for (int i = 0; i < recordContent.transform.childCount; i++)
                         {
-                            Destroy(recordContent.transform.GetChild(0));
+                            Destroy(recordContent.transform.GetChild(i));
                         }
                         simonListIndex = 0;
                     }
