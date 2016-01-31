@@ -28,6 +28,7 @@ public class Simon : MonoBehaviour {
     new AudioSource audio;
 
     List<int> simonList; //currently implemented with ints, can be easily substituted for Unity Color. Only accept [0,5] integers.
+    public List<int> SimonList { get { return simonList} };
     Dictionary<int, KeyCode> keystrokeMap; //to get what keystroke is associated with each color
     Color[] colorArr;
     int simonListIndex = 0; //index of what color we're on
@@ -37,7 +38,7 @@ public class Simon : MonoBehaviour {
     //timer positioning
     private float timerWidth = 300;
     private float timerHeight = 50.0f;
-    private float timerXPos = 0;
+    private float timerXPos = Screen.width/2 - 300/2;
     private float timerYPos = 0;
 
     /// <summary>
@@ -93,9 +94,11 @@ public class Simon : MonoBehaviour {
             {
                 simonListIndex = 0;
                 seconds = 0.0f;
+                running = false;
                 return 1;
             }
         }
+        running = false;
         return -1;
     }
     void flashColor(int p_colorIndex)
@@ -157,11 +160,12 @@ public class Simon : MonoBehaviour {
 
         audio = GetComponent<AudioSource>();
     }
-	
+
+    private bool running = false;
 	// Update is called once per frame
 	void Update () {
         int result;
-        if (seconds > 0.0f)
+        if (running)
         {
             result = simon();
             if (result == 1)
@@ -183,6 +187,7 @@ public class Simon : MonoBehaviour {
     {
         seconds = p_seconds;
         maxTimerCount = p_seconds;
+        running = true;
     }
 
     public void Generate()
