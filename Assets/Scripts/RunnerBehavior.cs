@@ -28,7 +28,7 @@ public class RunnerBehavior : MonoBehaviour
     private float jumpEnabledTimer;
 
     private SpriteRenderer _graphic;
-
+    private Animator _animator;
 
     private CharacterController2D _characterController2D;
 
@@ -51,6 +51,7 @@ public class RunnerBehavior : MonoBehaviour
         audio = GetComponent<AudioSource>();
         _characterController2D = GetComponent<CharacterController2D>();
         _graphic = transform.FindChild("PlaceholderRunner").gameObject.GetComponent<SpriteRenderer>();
+        _animator = transform.FindChild("PlaceholderRunner").gameObject.GetComponent<Animator>();
     }
 
     void Update()
@@ -85,7 +86,8 @@ public class RunnerBehavior : MonoBehaviour
                 //transform.Translate((colliderSize.x - colliderSize.y) * Vector3.up / 2);
                 transform.Translate(Mathf.Abs(colliderSize.x - colliderSize.y) * Vector3.up * 4);
                 //TODO: Change animation
-                transform.FindChild("PlaceholderRunner").Rotate(0, 0, -90);
+                _animator.SetBool("sliding", false);
+                //transform.FindChild("PlaceholderRunner").Rotate(0, 0, -90);
             }
         }
 
@@ -99,7 +101,8 @@ public class RunnerBehavior : MonoBehaviour
             GetComponent<BoxCollider2D>().size = colliderSize;
             _characterController2D.recalculateDistanceBetweenRays();
             //TODO: Change animation
-            transform.FindChild("PlaceholderRunner").Rotate(0,0,90);
+            _animator.SetBool("sliding", true);
+            //transform.FindChild("PlaceholderRunner").Rotate(0,0,90);
             _characterController2D.warpToGrounded();
         }
 
