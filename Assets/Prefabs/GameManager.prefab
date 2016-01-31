@@ -220,23 +220,9 @@ Prefab:
       value: .0500000007
       objectReference: {fileID: 0}
     - target: {fileID: 0}
-<<<<<<< HEAD
-      propertyPath: Terrain_Prefabs.Array.data[2]
-      value: 
-      objectReference: {fileID: 128876, guid: 5443f50f432d9bf49a37ddde9120b9f5, type: 2}
-    - target: {fileID: 0}
-      propertyPath: Terrain_Prefabs.Array.data[3]
-      value: 
-      objectReference: {fileID: 167418, guid: b33c21673f4b7314a9b6cfa6eb676c0e, type: 2}
-    - target: {fileID: 0}
-      propertyPath: Terrain_Prefabs.Array.data[1]
-      value: 
-      objectReference: {fileID: 167418, guid: b33c21673f4b7314a9b6cfa6eb676c0e, type: 2}
-=======
       propertyPath: SimonSpacing
       value: 25
       objectReference: {fileID: 0}
->>>>>>> d3ae3b0a7db9baad86a7cd201cc543e9a38ba417
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 192834}
