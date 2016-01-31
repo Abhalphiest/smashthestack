@@ -60,6 +60,6 @@ public class GameManagerScript : MonoBehaviour {
         coroutine = true;
         yield return new WaitForSeconds(2);
         Destroy(GameObject.FindGameObjectWithTag("UI"));
-        Application.LoadLevel(0);
+        Application.LoadLevel(2);
     }
 }
