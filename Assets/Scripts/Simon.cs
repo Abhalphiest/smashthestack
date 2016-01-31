@@ -76,7 +76,7 @@ public class Simon : MonoBehaviour {
                         flashError();
                         for (int i = 0; i < recordContent.transform.childCount; i++)
                         {
-                            Destroy(recordContent.transform.GetChild(i));
+                            Destroy(recordContent.transform.GetChild(i).gameObject);
                         }
                         simonListIndex = 0;
                     }
