@@ -168,7 +168,7 @@ MonoBehaviour:
   layer3_y: 0
   speed1: .150000006
   speed2: 2
-  speed3: .5
+  speed3: 6
   layer1_buffer: 3
   layer2_buffer: 3
   layer3_buffer: 3
@@ -216,6 +216,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: speed3
       value: .0500000007
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: SimonSpacing
+      value: 25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
