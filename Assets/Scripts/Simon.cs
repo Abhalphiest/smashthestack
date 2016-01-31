@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
+using UnityEngine.UI;
 
 public class Simon : MonoBehaviour {
 
@@ -19,10 +20,6 @@ public class Simon : MonoBehaviour {
 
     //textures for totem
     public Sprite[] Sprites;
-    //textures for progress bar
-    public Texture2D emptyProgressBar;
-    public Texture2D greenFill;
-    public Texture2D redFill;
     //sound effects for feedback
     public AudioClip[] feedback; // 0=F, 1=G, 2=H=Blue, 3=J=Red, 4=K=Yellow, 5=L=Green
     new AudioSource audio;
@@ -33,29 +30,16 @@ public class Simon : MonoBehaviour {
     int simonListIndex = 0; //index of what color we're on
     float seconds = 0.0f;
     private float maxTimerCount; //seconds you start with
+    private Slider progressSlider;
+    private HorizontalLayoutGroup recordContent;
 
-    //timer positioning
-    private float timerWidth = 300;
-    private float timerHeight = 50.0f;
-    private float timerXPos = 0;
-    private float timerYPos = 0;
+    public GameObject SimonRecordPrefab;
 
     /// <summary>
     /// simon runs the memory minigame
     /// </summary>
 
-    //Handle the loading bar using OnGUI
-    void OnGUI()
-    {
-        if (seconds > 0)
-        {
-            //Debug.Log("LOADING BAR APPEARS");
-            GUI.DrawTexture(new Rect(timerXPos, timerYPos, timerWidth, timerHeight), emptyProgressBar); //Empty progress bar
-            GUI.DrawTexture(new Rect(timerXPos, timerYPos, timerWidth, timerHeight), redFill); //red fill
-            GUI.DrawTexture(new Rect(timerXPos, timerYPos, (seconds/maxTimerCount) * timerWidth, timerHeight), greenFill); //green fill
-            //GUI.TextArea(new Rect(timerXPos + timerWidth/2 - textAreaWidth/2, timerYPos, textAreaWidth, timerHeight), (10 - (int)timerCount).ToString());
-        }
-    }
+
 
     public Sprite LastSprite
     {
@@ -75,6 +59,14 @@ public class Simon : MonoBehaviour {
                         print("correct");
                         //display color
                         flashColor(simonList[simonListIndex]);
+                        GameObject record = Instantiate(SimonRecordPrefab);
+                        record.GetComponent<Image>().sprite = Sprites[simonList[simonListIndex]];
+                        record.transform.parent = recordContent.transform;
+                        record.transform.localScale = Vector3.one;
+                        if (simonListIndex > 19)
+                        {
+                            recordContent.padding.left = -40*(simonListIndex - 19);
+                        }
                         simonListIndex++;
                     }
                     //else
@@ -83,6 +75,10 @@ public class Simon : MonoBehaviour {
                         print("wrong");
                         //let them know it reset
                         flashError();
+                        while (recordContent.transform.childCount > 0)
+                        {
+                            Destroy(recordContent.transform.GetChild(0));
+                        }
                         simonListIndex = 0;
                     }
                 }
@@ -156,6 +152,7 @@ public class Simon : MonoBehaviour {
         Camera.main.clearFlags = CameraClearFlags.Color;
 
         audio = GetComponent<AudioSource>();
+
     }
 	
 	// Update is called once per frame
@@ -174,10 +171,10 @@ public class Simon : MonoBehaviour {
                 print("lost");
                 GetComponent<GameManagerScript>().SetSuccess(false);
             }
+	    progressSlider.value = seconds/maxTimerCount;
 
         }
-        
-    }
+	}
 
     public void startSimon(float p_seconds)
     {
@@ -185,8 +182,12 @@ public class Simon : MonoBehaviour {
         maxTimerCount = p_seconds;
     }
 
-    public void Generate()
+    public void Generate(GameObject currSimon)
     {
         pushSimonColor(Random.Range(0, MAX_INDEX));
+        currSimon.transform.FindChild("NewLetter").GetComponent<SpriteRenderer>().sprite = LastSprite;
+
+        progressSlider = currSimon.GetComponentInChildren<Slider>();
+        recordContent = currSimon.GetComponentInChildren<HorizontalLayoutGroup>();
     }
 }
