@@ -52,8 +52,8 @@ public class GameManagerScript : MonoBehaviour {
     {
 
             paused = true;
-            //int simonCount = GetComponent<Simon>().
-            GetComponent<Simon>().startSimon(10.0f);
+            int simonCount = GetComponent<Simon>().SimonList.Count;
+            GetComponent<Simon>().startSimon(1.5f * simonCount);
             player.GetComponent<RunnerBehavior>().Paused = true;
             GetComponent<TerrainManager>().isPaused = true;     
     }
