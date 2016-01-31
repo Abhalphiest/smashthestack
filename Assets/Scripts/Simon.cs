@@ -25,7 +25,7 @@ public class Simon : MonoBehaviour {
     public Texture2D redFill;
     //sound effects for feedback
     public AudioClip[] feedback; // 0=F, 1=G, 2=H=Blue, 3=J=Red, 4=K=Yellow, 5=L=Green
-    AudioSource audio;
+    new AudioSource audio;
 
     List<int> simonList; //currently implemented with ints, can be easily substituted for Unity Color. Only accept [0,5] integers.
     Dictionary<int, KeyCode> keystrokeMap; //to get what keystroke is associated with each color
@@ -39,7 +39,6 @@ public class Simon : MonoBehaviour {
     private float timerHeight = 50.0f;
     private float timerXPos = 0;
     private float timerYPos = 0;
-    private float textAreaWidth = 50;
 
     /// <summary>
     /// simon runs the memory minigame

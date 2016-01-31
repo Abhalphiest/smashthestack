@@ -118,8 +118,10 @@ public class RunnerBehavior : MonoBehaviour
 
         if (transform.position.y < -25)
         {
-            transform.position += 30 * Vector3.up;
-            transform.position += transform.position.x*Vector3.left;
+            //transform.position += 30 * Vector3.up;
+            //transform.position += transform.position.x*Vector3.left;
+            Destroy(GameObject.FindGameObjectWithTag("UI"));
+            Application.LoadLevel(0);
         }
 
         if (!_jumping && !_sliding && _characterController2D.isGrounded && IsSkating())

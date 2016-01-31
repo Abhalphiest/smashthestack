@@ -166,7 +166,7 @@ MonoBehaviour:
   layer3_y: 0
   speed1: .150000006
   speed2: 2
-  speed3: .5
+  speed3: 6
   layer1_buffer: 3
   layer2_buffer: 3
   layer3_buffer: 3
@@ -220,6 +220,7 @@ Prefab:
       value: .0500000007
       objectReference: {fileID: 0}
     - target: {fileID: 0}
+<<<<<<< HEAD
       propertyPath: Terrain_Prefabs.Array.data[2]
       value: 
       objectReference: {fileID: 128876, guid: 5443f50f432d9bf49a37ddde9120b9f5, type: 2}
@@ -231,6 +232,11 @@ Prefab:
       propertyPath: Terrain_Prefabs.Array.data[1]
       value: 
       objectReference: {fileID: 167418, guid: b33c21673f4b7314a9b6cfa6eb676c0e, type: 2}
+=======
+      propertyPath: SimonSpacing
+      value: 25
+      objectReference: {fileID: 0}
+>>>>>>> d3ae3b0a7db9baad86a7cd201cc543e9a38ba417
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 192834}
