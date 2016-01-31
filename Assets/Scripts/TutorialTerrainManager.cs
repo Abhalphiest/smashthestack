@@ -2,6 +2,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class TutorialTerrainManager : TerrainManager
 {
@@ -70,7 +71,7 @@ public class TutorialTerrainManager : TerrainManager
 
         }
 
-        tutorialQueue= new Queue<TutorialStep>();
+        tutorialQueue = new Queue<TutorialStep>();
         tutorialQueue.Enqueue(new TutorialStep()
         {
             Index = JUMP,
@@ -84,12 +85,12 @@ public class TutorialTerrainManager : TerrainManager
         tutorialQueue.Enqueue(new TutorialStep()
         {
             Index = SIMON1,
-            Message = "Press the key on the golden platform"
+            Message = "Press the letter on the golden platform"
         });
         tutorialQueue.Enqueue(new TutorialStep()
         {
             Index = SIMON2,
-            Message = "Press the key from the first platform, then the key on this platform"
+            Message = "Press the letter from the first platform, then the key on this platform"
         });
         tutorialQueue.Enqueue(new TutorialStep()
         {
@@ -170,8 +171,10 @@ public class TutorialTerrainManager : TerrainManager
         GetComponent<GameManagerScript>().SetPause();
         tutorialQueue.Dequeue();
         //Set Message
-        Debug.Log(message);
+        GetComponentInChildren<Text>().text = message;
+        GetComponentInChildren<Canvas>().enabled = true;
         yield return new WaitForSeconds(2);
+        GetComponentInChildren<Canvas>().enabled = false;
         GetComponent<GameManagerScript>().UnPause();
     }
 }
