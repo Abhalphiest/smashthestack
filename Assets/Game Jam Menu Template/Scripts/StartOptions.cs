@@ -17,7 +17,7 @@ public class StartOptions : MonoBehaviour {
 	[HideInInspector] public Animator animColorFade; 					//Reference to animator which will fade to and from black when starting game.
 	[HideInInspector] public Animator animMenuAlpha;					//Reference to animator that will fade out alpha of MenuPanel canvas group
 	[HideInInspector] public AnimationClip fadeColorAnimationClip;		//Animation clip fading to color (black default) when changing scenes
-	[HideInInspector] public AnimationClip fadeAlphaAnimationClip;		//Animation clip fading out UI elements alpha
+	public AnimationClip fadeAlphaAnimationClip;		//Animation clip fading out UI elements alpha
 
 
 	private PlayMusic playMusic;										//Reference to PlayMusic script
