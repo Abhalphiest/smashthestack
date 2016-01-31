@@ -78,6 +78,10 @@ public class RunnerBehavior : MonoBehaviour
             _characterController2D.recalculateDistanceBetweenRays();
             //TODO: Change animation
             transform.FindChild("PlaceholderRunner").Rotate(0,0,90);
+            if (_characterController2D.collisionState.right)
+            {
+                _characterController2D.warpToGrounded();
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.W) && _characterController2D.isGrounded && !_sliding)
