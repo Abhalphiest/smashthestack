@@ -90,7 +90,7 @@ public class TutorialTerrainManager : TerrainManager
         tutorialQueue.Enqueue(new TutorialStep()
         {
             Index = SIMON2,
-            Message = "Press the letter from the first platform, then the key on this platform"
+            Message = "Press the letter from the first platform, then the letter on this platform"
         });
         tutorialQueue.Enqueue(new TutorialStep()
         {

@@ -87,15 +87,18 @@ public class StartOptions : MonoBehaviour {
     //Load into the tutorial level
     public void TutorialButtonClicked()
     {
-        print("Begin Tutorial!");
-        GameObject test = new GameObject();
-        test.AddComponent<Canvas>();
-        
-        
+        //Pause button now works if escape is pressed since we are no longer in Main menu.
+        inMainMenu = false;
+
+        //Hide the main menu UI element
+        showPanels.HideMenu();
+
+        //Load the selected scene, by scene index number in build settings
+        Application.LoadLevel(3);
     }
 
 
-	public void LoadDelayed()
+    public void LoadDelayed()
 	{
 		//Pause button now works if escape is pressed since we are no longer in Main menu.
 		inMainMenu = false;
