@@ -138,7 +138,7 @@ public class TerrainManager : MonoBehaviour {
         }
         else
         {
-            Vector3 position = terrain[rightIndex].transform.position + new Vector3(leftWidth + NORMAL_PIECE_WIDTH/2, 0, 0);
+            Vector3 position = terrain[rightIndex].transform.position + new Vector3(leftWidth + WIDE_PIECE_WIDTH/2, 0, 0);
             terrainCounter = 0;
             newPiece = Instantiate(Simon_Terrain, position, Quaternion.identity) as GameObject;
             curr_Simon = newPiece;
