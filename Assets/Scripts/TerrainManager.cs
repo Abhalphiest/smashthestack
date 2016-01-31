@@ -111,7 +111,7 @@ public class TerrainManager : MonoBehaviour {
             rightIndex = (rightIndex + 1) % MAX_TERRAIN_PIECES;
 
         }
-        if(curr_Simon != null && Mathf.Abs(curr_Simon.transform.position.x - 4 - player.transform.position.x) < 1 && !success)
+        if(curr_Simon != null && Mathf.Abs(curr_Simon.transform.position.x - player.transform.position.x) < 1 && !success)
         {
             print("try pause");
             GetComponent<GameManagerScript>().SetPause();
