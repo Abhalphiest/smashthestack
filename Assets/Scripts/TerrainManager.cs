@@ -127,7 +127,7 @@ public class TerrainManager : MonoBehaviour {
         if(simonQueue.Count > 0 && Mathf.Abs(simonQueue.Peek().transform.position.x - player.transform.position.x) < 1)
         {
             print("Set Pause");
-            GetComponent<GameManagerScript>().SetPause();
+            GetComponent<GameManagerScript>().StartSimon();
         }
 	}
 
