@@ -14,7 +14,7 @@ public class RunnerBehavior : MonoBehaviour
     public float Gravity = 300f;
     public float BaseX = 1.37f;
     public float XResetSpeed = 0.5f;
-    public bool Paused;
+    private bool _paused;
     public AudioClip[] feedback; // 0=jump, 1=land, 2=slide
     new AudioSource audio;
 
@@ -32,6 +32,19 @@ public class RunnerBehavior : MonoBehaviour
 
     private CharacterController2D _characterController2D;
 
+    public bool Paused
+    {
+        get { return _paused; }
+        set
+        {
+            _paused = value;
+            if (_paused)
+            {
+                _characterController2D.warpToGrounded();
+            }
+        }
+    }
+
     // Use this for initialization
     void Start()
     {
@@ -42,7 +55,7 @@ public class RunnerBehavior : MonoBehaviour
 
     void Update()
     {
-        if (Paused)
+        if (_paused)
         {
             return;
         }

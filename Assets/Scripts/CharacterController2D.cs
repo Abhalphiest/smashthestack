@@ -304,10 +304,12 @@ namespace Prime31
         /// </summary>
         public void warpToGrounded()
         {
+            int attemptCount = 0;
             do
             {
                 move(new Vector3(0, -1f, 0));
-            } while (!isGrounded);
+                attemptCount++;
+            } while (!isGrounded && attemptCount < 1000);
         }
 
 

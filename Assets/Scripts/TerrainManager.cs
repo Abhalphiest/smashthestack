@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class TerrainManager : MonoBehaviour {
     // Number of terrain pieces that can exist at once.
@@ -17,14 +18,14 @@ public class TerrainManager : MonoBehaviour {
     public GameObject Terrain_Flat;
     public GameObject Simon_Terrain;
 
-    private GameObject curr_Simon;
+    private Queue<GameObject> simonQueue; 
+
     public int SimonSpacing = 25;
 
     private TerrainData[] Terrain_Prefabs_Data;
     public float screenSpeed = 0.5f;
     private GameObject player;
     public bool isPaused = false;
-    public bool success = false;
     private Simon simon;
 
     void Start()
@@ -43,6 +44,7 @@ public class TerrainManager : MonoBehaviour {
         terrain = new TerrainData[MAX_TERRAIN_PIECES];
         leftIndex = 0;
 
+        simonQueue = new Queue<GameObject>();
         
         int xoffset = 0;
         // Spawn the starting terrain.
@@ -111,7 +113,7 @@ public class TerrainManager : MonoBehaviour {
             rightIndex = (rightIndex + 1) % MAX_TERRAIN_PIECES;
 
         }
-        if(curr_Simon != null && Mathf.Abs(curr_Simon.transform.position.x - player.transform.position.x) < 1 && !success)
+        if(simonQueue.Count > 0 && Mathf.Abs(simonQueue.Peek().transform.position.x - player.transform.position.x) < 1)
         {
             print("Set Pause");
             GetComponent<GameManagerScript>().SetPause();
@@ -141,11 +143,21 @@ public class TerrainManager : MonoBehaviour {
             Vector3 position = terrain[rightIndex].transform.position + new Vector3(leftWidth + WIDE_PIECE_WIDTH/2, 0, 0);
             terrainCounter = 0;
             newPiece = Instantiate(Simon_Terrain, position, Quaternion.identity) as GameObject;
-            curr_Simon = newPiece;
-            simon.Generate(curr_Simon);
-            success = false;
+            simonQueue.Enqueue(newPiece);
+            if (simonQueue.Count == 1)
+            {
+                simon.Generate(simonQueue.Peek());
+            }
         }
         return newPiece.GetComponent<TerrainData>();
+    }
+    public void CompletedSimon()
+    {
+        simonQueue.Dequeue();
+        if (simonQueue.Count > 0)
+        {
+            simon.Generate(simonQueue.Peek());
+        }
     }
 
     private int GetRandIndex()
@@ -172,4 +184,5 @@ public class TerrainManager : MonoBehaviour {
 
         return 0;
     }
+
 }
