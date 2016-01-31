@@ -32,6 +32,7 @@ public class GameManagerScript : MonoBehaviour {
     {
         if(!p_successValue)
         {
+            Debug.Log("Time's Up");
             //game over logic
             if (!coroutine)
             {
@@ -51,6 +52,7 @@ public class GameManagerScript : MonoBehaviour {
     {
 
             paused = true;
+            //int simonCount = GetComponent<Simon>().
             GetComponent<Simon>().startSimon(10.0f);
             player.GetComponent<RunnerBehavior>().Paused = true;
             GetComponent<TerrainManager>().isPaused = true;     
@@ -58,7 +60,7 @@ public class GameManagerScript : MonoBehaviour {
     IEnumerator gameOver()
     {
         coroutine = true;
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(0.5f);
         Destroy(GameObject.FindGameObjectWithTag("UI"));
         Application.LoadLevel(2);
     }
