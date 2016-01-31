@@ -5,8 +5,6 @@ using UnityEngine.Audio;
 
 public class StartOptions : MonoBehaviour {
 
-
-
 	public int sceneToStart = 1;										//Index number in build settings of scene to load if changeScenes is true
 	public bool changeScenes;											//If true, load a new scene when Start is pressed, if false, fade out UI and continue in single scene
 	public bool changeMusicOnStart;										//Choose whether to continue playing menu music or start a new music clip
@@ -32,18 +30,40 @@ public class StartOptions : MonoBehaviour {
 
 		//Get a reference to PlayMusic attached to UI object
 		playMusic = GetComponent<PlayMusic> ();
+
+       
 	}
 
+    // special exception for platform length
+    public void RestartButtonClicked()
+    {
+        // if restart
+        GlobalData gdComponent = FindObjectOfType<GlobalData>();
+        if (gdComponent == null)
+        {
+            print("no global data object");
+        }
+        else
+        {
+            print("restart recorded in global data");
+            gdComponent.RecordRestart();
+        }
 
-	public void StartButtonClicked()
+        // THIS METHOD DOES NOT HANDLE OR INVOKE StartButtonClicked
+        // if you want to restart the scene, you still must call StartButtonClicked
+    }
+
+    public void StartButtonClicked()
 	{
 		//If changeMusicOnStart is true, fade out volume of music group of AudioMixer by calling FadeDown function of PlayMusic, using length of fadeColorAnimationClip as time. 
 		//To change fade time, change length of animation "FadeToColor"
 		if (changeMusicOnStart) 
 		{
-			playMusic.FadeDown(fadeColorAnimationClip.length);
+            playMusic.FadeDown(fadeColorAnimationClip.length);
 			Invoke ("PlayNewMusic", fadeAlphaAnimationClip.length);
 		}
+
+
         changeScenes = true;
 		//If changeScenes is true, start fading and change scenes halfway through animation when screen is blocked by FadeImage
 		if (changeScenes) 

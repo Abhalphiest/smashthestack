@@ -18,6 +18,8 @@ public class TerrainManager : MonoBehaviour {
     public GameObject Terrain_Flat;
     public GameObject Simon_Terrain;
 
+    private bool quickStart; // controls number of starting flat platforms
+
     private Queue<GameObject> simonQueue; 
 
     public int SimonSpacing = 25;
@@ -44,13 +46,22 @@ public class TerrainManager : MonoBehaviour {
         terrain = new TerrainData[MAX_TERRAIN_PIECES];
         leftIndex = 0;
 
+        if (FindObjectOfType<GlobalData>() != null)
+        {
+            quickStart = FindObjectOfType<GlobalData>().shortStart;
+            print("shortstart true");
+        }
+
+        int flatAreaCount = quickStart ? 1 : 4;
+        if (flatAreaCount == 1) print("flatAreaCount: " + flatAreaCount);
+
         simonQueue = new Queue<GameObject>();
         
         int xoffset = 0;
         // Spawn the starting terrain.
         for (int i = 0; i < MAX_TERRAIN_PIECES; ++i)
         {
-            if (i < 4)
+            if (i < flatAreaCount)
             {
                 if (i != 0)
                 {
