@@ -81,7 +81,7 @@ public class RunnerBehavior : MonoBehaviour
             _characterController2D.warpToGrounded();
         }
 
-        if (Input.GetKeyDown(KeyCode.W) && _characterController2D.isGrounded && !_sliding)
+        if (Input.GetKeyDown(KeyCode.W) && _characterController2D.isGrounded)
         {
             _jumping = true;
             _jumpTime = 0;
