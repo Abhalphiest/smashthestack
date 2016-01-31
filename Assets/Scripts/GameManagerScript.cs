@@ -65,12 +65,20 @@ public class GameManagerScript : MonoBehaviour {
         player.GetComponent<RunnerBehavior>().Paused = true;
         GetComponent<TerrainManager>().isPaused = true;
     }
+
     IEnumerator gameOver()
     {
         coroutine = true;
         yield return new WaitForSeconds(0.0f);
-        Destroy(GameObject.FindGameObjectWithTag("UI"));
-        SetPause();
-        Application.LoadLevelAdditive(2);
+        if (Application.loadedLevelName == "TutorialScene")
+        {
+            Application.LoadLevel(0);
+        }
+        else
+        {
+            Destroy(GameObject.FindGameObjectWithTag("UI"));
+            SetPause();
+            Application.LoadLevelAdditive(2);
+        }
     }
 }
