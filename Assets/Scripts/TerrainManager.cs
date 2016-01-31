@@ -4,31 +4,31 @@ using System.Collections.Generic;
 
 public class TerrainManager : MonoBehaviour {
     // Number of terrain pieces that can exist at once.
-    private const int MAX_TERRAIN_PIECES = 8;
-    private const int NORMAL_PIECE_WIDTH = 8;
-    private const int WIDE_PIECE_WIDTH = 16;
+    protected const int MAX_TERRAIN_PIECES = 8;
+    protected const int NORMAL_PIECE_WIDTH = 8;
+    protected const int WIDE_PIECE_WIDTH = 16;
 
-    private TerrainData[] terrain;
+    protected TerrainData[] terrain;
     public int leftIndex;
     public int rightIndex;
-    private int terrainCounter;
+    protected int terrainCounter;
 
     // Public
     public GameObject[] Terrain_Prefabs;
     public GameObject Terrain_Flat;
     public GameObject Simon_Terrain;
 
-    private Queue<GameObject> simonQueue; 
+    protected Queue<GameObject> simonQueue; 
 
     public int SimonSpacing = 25;
 
-    private TerrainData[] Terrain_Prefabs_Data;
+    protected TerrainData[] Terrain_Prefabs_Data;
     public float screenSpeed = 0.5f;
-    private GameObject player;
+    protected GameObject player;
     public bool isPaused = false;
-    private Simon simon;
+    protected Simon simon;
 
-    void Start()
+    public virtual void Start()
     {
         simon = GetComponent<Simon>();
         player = GameObject.FindGameObjectWithTag("Player");
@@ -80,8 +80,8 @@ public class TerrainManager : MonoBehaviour {
         
     }
 
-	// Update is called once per frame
-	void Update() {
+    // Update is called once per frame
+    public virtual void Update() {
         
         if (isPaused)
         {
@@ -116,7 +116,7 @@ public class TerrainManager : MonoBehaviour {
         if(simonQueue.Count > 0 && Mathf.Abs(simonQueue.Peek().transform.position.x - player.transform.position.x) < 1)
         {
             print("Set Pause");
-            GetComponent<GameManagerScript>().SetPause();
+            GetComponent<GameManagerScript>().StartSimon();
         }
 	}
 
@@ -151,7 +151,7 @@ public class TerrainManager : MonoBehaviour {
         }
         return newPiece.GetComponent<TerrainData>();
     }
-    public void CompletedSimon()
+    public virtual void CompletedSimon()
     {
         simonQueue.Dequeue();
         if (simonQueue.Count > 0)
