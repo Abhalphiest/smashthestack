@@ -57,7 +57,6 @@ public class Simon : MonoBehaviour {
                     //if correct key
                     if (Input.GetKeyDown(keystrokeMap[simonList[simonListIndex]]))
                     {
-                        print("correct");
                         //display color
                         flashColor(simonList[simonListIndex]);
                         GameObject record = Instantiate(SimonRecordPrefab);
@@ -73,7 +72,6 @@ public class Simon : MonoBehaviour {
                     //else
                     else
                     {
-                        print("wrong");
                         //let them know it reset
                         flashError();
                         while (recordContent.transform.childCount > 0)
@@ -103,9 +101,7 @@ public class Simon : MonoBehaviour {
 
         //to be changed later, obviously
         if (p_colorIndex >= 0 && p_colorIndex < 6)
-        {
-            print(colorArr[p_colorIndex]);
-           
+        {      
             Camera.main.backgroundColor = colorArr[p_colorIndex];
 
             switch (p_colorIndex)
@@ -167,12 +163,10 @@ public class Simon : MonoBehaviour {
             result = simon();
             if (result == 1)
             {
-                print("won");
                 GetComponent<GameManagerScript>().SetSuccess(true);
             }
             else if(result == -1)
             {
-                print("lost");
                 GetComponent<GameManagerScript>().SetSuccess(false);
             }
 	    progressSlider.value = seconds/maxTimerCount;

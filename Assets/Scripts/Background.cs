@@ -7,9 +7,9 @@ public class Background : MonoBehaviour {
     public float layer1_y;
     public float layer2_y;
     public float layer3_y;
-    public float speed1 = 15f;
-    public float speed2 = 15f;
-    public float speed3 = 15f;
+    public float speed1;
+    public float speed2;
+    public float speed3;
     public int layer1_buffer = 3;
     public int layer2_buffer = 3;
     public int layer3_buffer = 3;
@@ -31,11 +31,11 @@ public class Background : MonoBehaviour {
     void Start () {
         layer1List = new List<GameObject>();
         layer2List = new List<GameObject>();
-        //layer3List = new List<GameObject>();
+        layer3List = new List<GameObject>();
 
         layer1UnityWidth = layer1.GetComponent<SpriteRenderer>().sprite.texture.width / layer1.GetComponent<SpriteRenderer>().sprite.pixelsPerUnit;
         layer2UnityWidth = layer2.GetComponent<SpriteRenderer>().sprite.texture.width / layer2.GetComponent<SpriteRenderer>().sprite.pixelsPerUnit;
-        //layer3UnityWidth = layer3.GetComponent<SpriteRenderer>().sprite.texture.width / layer3.GetComponent<SpriteRenderer>().sprite.pixelsPerUnit;
+        layer3UnityWidth = layer3.GetComponent<SpriteRenderer>().sprite.texture.width / layer3.GetComponent<SpriteRenderer>().sprite.pixelsPerUnit;
 
         //Load in the parallax background images
         for (int i = 0; i < layer1_buffer; i++)
@@ -46,10 +46,10 @@ public class Background : MonoBehaviour {
         {
             layer2List.Add((GameObject)Instantiate(layer2, new Vector3(layer2UnityWidth * i, layer2_y, 49 ), Quaternion.identity));
         }
-        //for (int i = 0; i < layer3_buffer; i++)
-        //{
-            //layer3List.Add((GameObject)Instantiate(layer3, new Vector3(layer3UnityWidth * i, layer3_y, 3 + i * 0.001f), Quaternion.identity));
-        //}
+        for (int i = 0; i < layer3_buffer; i++)
+        {
+            layer3List.Add((GameObject)Instantiate(layer3, new Vector3(layer3UnityWidth * i, layer3_y, 3 + i * 0.001f), Quaternion.identity));
+        }
     }
 
     // Update is called once per frame
@@ -67,10 +67,10 @@ public class Background : MonoBehaviour {
         {
             frame.transform.position -= scrollSpeed2;
         }
-        //foreach (GameObject frame in layer3List)
-        //{
-           // frame.transform.position -= scrollSpeed3;
-        //}
+        foreach (GameObject frame in layer3List)
+        {
+            frame.transform.position -= scrollSpeed3;
+        }
 
         float resetPos = -20.0f;
         float moveTo = resetPos + (layer1UnityWidth * layer1_buffer);
@@ -91,14 +91,14 @@ public class Background : MonoBehaviour {
             temp.transform.position = new Vector3(moveTo, layer2_y, temp.transform.position.z);
             layer2List.Add(temp);
         }
-        //moveTo = resetPos + (layer3UnityWidth * layer3_buffer);
+        moveTo = resetPos + (layer3UnityWidth * layer3_buffer);
         //if parallax layer 3 moves too far left, move it back around to the right
-        //if (layer3List[0].transform.position.x < resetPos)
-        //{
-           // GameObject temp = layer3List[0];
-            //layer3List.RemoveAt(0);
-            //temp.transform.position = new Vector3(moveTo, layer3_y, temp.transform.position.z);
-            //layer3List.Add(temp);
-       // }
+        if (layer3List[0].transform.position.x < resetPos)
+        {
+            GameObject temp = layer3List[0];
+            layer3List.RemoveAt(0);
+            temp.transform.position = new Vector3(moveTo, layer3_y, temp.transform.position.z);
+            layer3List.Add(temp);
+        }
     }
 }

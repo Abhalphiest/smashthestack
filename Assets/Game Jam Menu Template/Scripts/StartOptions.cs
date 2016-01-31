@@ -45,7 +45,6 @@ public class StartOptions : MonoBehaviour {
 			Invoke ("PlayNewMusic", fadeAlphaAnimationClip.length);
 		}
         changeScenes = true;
-        Debug.Log("changeScenes is: " + changeScenes);
 		//If changeScenes is true, start fading and change scenes halfway through animation when screen is blocked by FadeImage
 		if (changeScenes) 
 		{
@@ -96,10 +95,6 @@ public class StartOptions : MonoBehaviour {
 
 		//Wait until game has started, then hide the main menu
 		Invoke("HideDelayed", fadeAlphaAnimationClip.length);
-
-		Debug.Log ("Game started in same scene! Put your game starting stuff here.");
-
-
 	}
 
 

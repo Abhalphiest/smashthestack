@@ -113,7 +113,7 @@ public class TerrainManager : MonoBehaviour {
         }
         if(curr_Simon != null && Mathf.Abs(curr_Simon.transform.position.x - player.transform.position.x) < 1 && !success)
         {
-            print("try pause");
+            print("Set Pause");
             GetComponent<GameManagerScript>().SetPause();
         }
 	}

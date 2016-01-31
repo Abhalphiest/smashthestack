@@ -202,6 +202,18 @@ Prefab:
       propertyPath: screenSpeed
       value: .170000002
       objectReference: {fileID: 0}
+    - target: {fileID: 19966944, guid: c27a7a97f4b96e34ba8c441b490ca493, type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19900320, guid: c27a7a97f4b96e34ba8c441b490ca493, type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11453846, guid: c27a7a97f4b96e34ba8c441b490ca493, type: 2}
+      propertyPath: layer3
+      value: 
+      objectReference: {fileID: 125516, guid: b695d5eb834cfa4428054ca08d9b00b2, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c27a7a97f4b96e34ba8c441b490ca493, type: 2}
   m_IsPrefabParent: 0

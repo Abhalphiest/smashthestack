@@ -32,7 +32,6 @@ public class GameManagerScript : MonoBehaviour {
     {
         if(!p_successValue)
         {
-            Debug.Log("Time's Up");
             //game over logic
             if (!coroutine)
             {
@@ -41,7 +40,6 @@ public class GameManagerScript : MonoBehaviour {
         }
         else
         {
-            print("success attempt");
             paused = false;
             player.GetComponent<RunnerBehavior>().Paused = false;
             GetComponent<TerrainManager>().success = true;
@@ -50,12 +48,11 @@ public class GameManagerScript : MonoBehaviour {
     }
     public void SetPause()
     {
-
-            paused = true;
-            int simonCount = GetComponent<Simon>().SimonList.Count;
-            GetComponent<Simon>().startSimon(1.5f * simonCount);
-            player.GetComponent<RunnerBehavior>().Paused = true;
-            GetComponent<TerrainManager>().isPaused = true;     
+        paused = true;
+        int simonCount = GetComponent<Simon>().SimonList.Count;
+        GetComponent<Simon>().startSimon(1.5f * simonCount);
+        player.GetComponent<RunnerBehavior>().Paused = true;
+        GetComponent<TerrainManager>().isPaused = true;
     }
     IEnumerator gameOver()
     {
