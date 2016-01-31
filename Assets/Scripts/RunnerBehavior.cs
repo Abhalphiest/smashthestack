@@ -25,6 +25,7 @@ public class RunnerBehavior : MonoBehaviour
     private float _slideTime;
     private bool _groundHitPlayed;
     private bool isDead = false;
+    private float jumpEnabledTimer;
 
     private SpriteRenderer _graphic;
 
@@ -89,7 +90,16 @@ public class RunnerBehavior : MonoBehaviour
             _characterController2D.warpToGrounded();
         }
 
-        if (Input.GetKeyDown(KeyCode.W) && _characterController2D.isGrounded)
+        if (_characterController2D.isGrounded)
+        {
+            jumpEnabledTimer = 0.1f;
+        }
+        else
+        {
+            jumpEnabledTimer -= Time.deltaTime;
+        }
+
+        if (Input.GetKeyDown(KeyCode.W) && jumpEnabledTimer > 0)
         {
             _groundHitPlayed = true;
             audio.PlayOneShot(feedback[0]);
