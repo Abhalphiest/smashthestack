@@ -28,7 +28,7 @@ public class Simon : MonoBehaviour {
     new AudioSource audio;
 
     List<int> simonList; //currently implemented with ints, can be easily substituted for Unity Color. Only accept [0,5] integers.
-    public List<int> SimonList { get { return simonList} };
+    public List<int> SimonList { get { return simonList; } }
     Dictionary<int, KeyCode> keystrokeMap; //to get what keystroke is associated with each color
     Color[] colorArr;
     int simonListIndex = 0; //index of what color we're on
