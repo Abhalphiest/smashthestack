@@ -54,7 +54,7 @@ public class RunnerBehavior : MonoBehaviour
         if (_sliding)
         {
             _slideTime += Time.deltaTime;
-            if (_slideTime > MaxSlideTime || _characterController2D.collisionState.right)
+            if (_slideTime > MaxSlideTime || _characterController2D.collisionState.right || !_characterController2D.isGrounded)
             {
                 _sliding = false;
                 var colliderSize = GetComponent<BoxCollider2D>().size;
@@ -68,7 +68,7 @@ public class RunnerBehavior : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.S) && _characterController2D.isGrounded)
+        if (Input.GetKeyDown(KeyCode.S) && _characterController2D.isGrounded && !_sliding)
         {
             _slideTime = 0;
             _sliding = true;
@@ -78,10 +78,7 @@ public class RunnerBehavior : MonoBehaviour
             _characterController2D.recalculateDistanceBetweenRays();
             //TODO: Change animation
             transform.FindChild("PlaceholderRunner").Rotate(0,0,90);
-            if (_characterController2D.collisionState.right)
-            {
-                _characterController2D.warpToGrounded();
-            }
+            _characterController2D.warpToGrounded();
         }
 
         if (Input.GetKeyDown(KeyCode.W) && _characterController2D.isGrounded && !_sliding)
