@@ -64,6 +64,16 @@ public class StartOptions : MonoBehaviour {
 
 	}
 
+    //Load into the tutorial level
+    public void TutorialButtonClicked()
+    {
+        print("Begin Tutorial!");
+        GameObject test = new GameObject();
+        test.AddComponent<Canvas>();
+        
+        
+    }
+
 
 	public void LoadDelayed()
 	{

@@ -15,7 +15,9 @@ public class TutorialTerrainManager : TerrainManager
 
     private bool simonQueued;
 
-    private Queue<TutorialStep> tutorialQueue; 
+    private Queue<TutorialStep> tutorialQueue;
+
+    public Texture2D popUpMessage;
 
     public override void Start()
     {
