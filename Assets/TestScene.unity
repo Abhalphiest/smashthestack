@@ -299,6 +299,10 @@ Prefab:
       propertyPath: feedback.Array.data[0]
       value: 
       objectReference: {fileID: 8300000, guid: 112b531c27a4edc4e9430d37cc3d4867, type: 3}
+    - target: {fileID: 11407058, guid: 877e564d381f2814c8fb85dac7625d6b, type: 2}
+      propertyPath: BaseX
+      value: -3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 877e564d381f2814c8fb85dac7625d6b, type: 2}
   m_IsPrefabParent: 0
