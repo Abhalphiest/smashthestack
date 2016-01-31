@@ -4,31 +4,33 @@ using System.Collections.Generic;
 
 public class TerrainManager : MonoBehaviour {
     // Number of terrain pieces that can exist at once.
-    protected const int MAX_TERRAIN_PIECES = 8;
-    protected const int NORMAL_PIECE_WIDTH = 8;
-    protected const int WIDE_PIECE_WIDTH = 16;
+    private const int MAX_TERRAIN_PIECES = 8;
+    private const int NORMAL_PIECE_WIDTH = 8;
+    private const int WIDE_PIECE_WIDTH = 16;
 
-    protected TerrainData[] terrain;
+    private TerrainData[] terrain;
     public int leftIndex;
     public int rightIndex;
-    protected int terrainCounter;
+    private int terrainCounter;
 
     // Public
     public GameObject[] Terrain_Prefabs;
     public GameObject Terrain_Flat;
     public GameObject Simon_Terrain;
 
-    protected Queue<GameObject> simonQueue; 
+    private bool quickStart; // controls number of starting flat platforms
+
+    private Queue<GameObject> simonQueue; 
 
     public int SimonSpacing = 25;
 
-    protected TerrainData[] Terrain_Prefabs_Data;
+    private TerrainData[] Terrain_Prefabs_Data;
     public float screenSpeed = 0.5f;
-    protected GameObject player;
+    private GameObject player;
     public bool isPaused = false;
-    protected Simon simon;
+    private Simon simon;
 
-    public virtual void Start()
+    void Start()
     {
         simon = GetComponent<Simon>();
         player = GameObject.FindGameObjectWithTag("Player");
@@ -44,13 +46,22 @@ public class TerrainManager : MonoBehaviour {
         terrain = new TerrainData[MAX_TERRAIN_PIECES];
         leftIndex = 0;
 
+        if (FindObjectOfType<GlobalData>() != null)
+        {
+            quickStart = FindObjectOfType<GlobalData>().shortStart;
+            print("shortstart true");
+        }
+
+        int flatAreaCount = quickStart ? 1 : 4;
+        if (flatAreaCount == 1) print("flatAreaCount: " + flatAreaCount);
+
         simonQueue = new Queue<GameObject>();
         
         int xoffset = 0;
         // Spawn the starting terrain.
         for (int i = 0; i < MAX_TERRAIN_PIECES; ++i)
         {
-            if (i < 4)
+            if (i < flatAreaCount)
             {
                 if (i != 0)
                 {
@@ -80,8 +91,8 @@ public class TerrainManager : MonoBehaviour {
         
     }
 
-    // Update is called once per frame
-    public virtual void Update() {
+	// Update is called once per frame
+	void Update() {
         
         if (isPaused)
         {
@@ -116,7 +127,7 @@ public class TerrainManager : MonoBehaviour {
         if(simonQueue.Count > 0 && Mathf.Abs(simonQueue.Peek().transform.position.x - player.transform.position.x) < 1)
         {
             print("Set Pause");
-            GetComponent<GameManagerScript>().StartSimon();
+            GetComponent<GameManagerScript>().SetPause();
         }
 	}
 
@@ -151,7 +162,7 @@ public class TerrainManager : MonoBehaviour {
         }
         return newPiece.GetComponent<TerrainData>();
     }
-    public virtual void CompletedSimon()
+    public void CompletedSimon()
     {
         simonQueue.Dequeue();
         if (simonQueue.Count > 0)
