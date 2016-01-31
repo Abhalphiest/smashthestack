@@ -31,25 +31,25 @@ public class Background : MonoBehaviour {
     void Start () {
         layer1List = new List<GameObject>();
         layer2List = new List<GameObject>();
-        layer3List = new List<GameObject>();
+        //layer3List = new List<GameObject>();
 
         layer1UnityWidth = layer1.GetComponent<SpriteRenderer>().sprite.texture.width / layer1.GetComponent<SpriteRenderer>().sprite.pixelsPerUnit;
         layer2UnityWidth = layer2.GetComponent<SpriteRenderer>().sprite.texture.width / layer2.GetComponent<SpriteRenderer>().sprite.pixelsPerUnit;
-        layer3UnityWidth = layer3.GetComponent<SpriteRenderer>().sprite.texture.width / layer3.GetComponent<SpriteRenderer>().sprite.pixelsPerUnit;
+        //layer3UnityWidth = layer3.GetComponent<SpriteRenderer>().sprite.texture.width / layer3.GetComponent<SpriteRenderer>().sprite.pixelsPerUnit;
 
         //Load in the parallax background images
         for (int i = 0; i < layer1_buffer; i++)
         {
-            layer1List.Add((GameObject)Instantiate(layer1, new Vector3(layer1UnityWidth * i, layer1_y, 5 + i * 0.001f), Quaternion.identity));
+            layer1List.Add((GameObject)Instantiate(layer1, new Vector3(layer1UnityWidth * i, layer1_y, 50  ), Quaternion.identity));
         }
         for (int i = 0; i < layer2_buffer; i++)
         {
-            layer2List.Add((GameObject)Instantiate(layer2, new Vector3(layer2UnityWidth * i, layer2_y, 4 + i * 0.001f), Quaternion.identity));
+            layer2List.Add((GameObject)Instantiate(layer2, new Vector3(layer2UnityWidth * i, layer2_y, 49 ), Quaternion.identity));
         }
-        for (int i = 0; i < layer3_buffer; i++)
-        {
-            layer3List.Add((GameObject)Instantiate(layer3, new Vector3(layer3UnityWidth * i, layer3_y, 3 + i * 0.001f), Quaternion.identity));
-        }
+        //for (int i = 0; i < layer3_buffer; i++)
+        //{
+            //layer3List.Add((GameObject)Instantiate(layer3, new Vector3(layer3UnityWidth * i, layer3_y, 3 + i * 0.001f), Quaternion.identity));
+        //}
     }
 
     // Update is called once per frame
@@ -67,10 +67,10 @@ public class Background : MonoBehaviour {
         {
             frame.transform.position -= scrollSpeed2;
         }
-        foreach (GameObject frame in layer3List)
-        {
-            frame.transform.position -= scrollSpeed3;
-        }
+        //foreach (GameObject frame in layer3List)
+        //{
+           // frame.transform.position -= scrollSpeed3;
+        //}
 
         float resetPos = -20.0f;
         float moveTo = resetPos + (layer1UnityWidth * layer1_buffer);
@@ -91,14 +91,14 @@ public class Background : MonoBehaviour {
             temp.transform.position = new Vector3(moveTo, layer2_y, temp.transform.position.z);
             layer2List.Add(temp);
         }
-        moveTo = resetPos + (layer3UnityWidth * layer3_buffer);
+        //moveTo = resetPos + (layer3UnityWidth * layer3_buffer);
         //if parallax layer 3 moves too far left, move it back around to the right
-        if (layer3List[0].transform.position.x < resetPos)
-        {
-            GameObject temp = layer3List[0];
-            layer3List.RemoveAt(0);
-            temp.transform.position = new Vector3(moveTo, layer3_y, temp.transform.position.z);
-            layer3List.Add(temp);
-        }
+        //if (layer3List[0].transform.position.x < resetPos)
+        //{
+           // GameObject temp = layer3List[0];
+            //layer3List.RemoveAt(0);
+            //temp.transform.position = new Vector3(moveTo, layer3_y, temp.transform.position.z);
+            //layer3List.Add(temp);
+       // }
     }
 }
