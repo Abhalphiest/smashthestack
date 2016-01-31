@@ -57,8 +57,10 @@ public class GameManagerScript : MonoBehaviour {
     IEnumerator gameOver()
     {
         coroutine = true;
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.0f);
         Destroy(GameObject.FindGameObjectWithTag("UI"));
-        Application.LoadLevel(2);
+        Destroy(GameObject.FindGameObjectWithTag("UI"));
+        SetPause();
+        Application.LoadLevelAdditive(2);
     }
 }
