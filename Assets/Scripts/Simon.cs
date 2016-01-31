@@ -95,12 +95,8 @@ public class Simon : MonoBehaviour {
                 seconds = 0.0f;
                 return 1;
             }
-           
-            
-
         }
         return -1;
-
     }
     void flashColor(int p_colorIndex)
     {

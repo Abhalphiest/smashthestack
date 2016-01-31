@@ -118,16 +118,6 @@ public class RunnerBehavior : MonoBehaviour
 
         _characterController2D.move(_velocity * Time.deltaTime - Vector2.left * 0.5f);
 
-        if (transform.position.y < -25)
-        {
-            if(!isDead)
-            {
-                StartCoroutine(gameOver());
-            }
-            //transform.position += 30 * Vector3.up;
-            //transform.position += transform.position.x*Vector3.left;
-        }
-
         if (!_jumping && !_sliding && _characterController2D.isGrounded && IsSkating())
         {
             GetComponentInChildren<ParticleSystem>().Emit(Random.Range(0, 10));
@@ -137,13 +127,5 @@ public class RunnerBehavior : MonoBehaviour
     private bool IsSkating()
     {
         return _graphic.sprite.name.EndsWith("1") || _graphic.sprite.name.EndsWith("6");
-    }
-
-    IEnumerator gameOver()
-    {
-        isDead = true;
-        yield return new WaitForSeconds(2);
-        Destroy(GameObject.FindGameObjectWithTag("UI"));
-        Application.LoadLevel(0);
     }
 }
