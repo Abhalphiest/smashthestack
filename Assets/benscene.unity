@@ -124,6 +124,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11400958, guid: c27a7a97f4b96e34ba8c441b490ca493, type: 2}
+      propertyPath: Terrain_Prefabs.Array.data[15]
+      value: 
+      objectReference: {fileID: 100450, guid: b464bf9475309b045b5371aa34021d98, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c27a7a97f4b96e34ba8c441b490ca493, type: 2}
   m_IsPrefabParent: 0
@@ -136,7 +140,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 432540, guid: 877e564d381f2814c8fb85dac7625d6b, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -11.3572617
+      value: -6.46000004
       objectReference: {fileID: 0}
     - target: {fileID: 432540, guid: 877e564d381f2814c8fb85dac7625d6b, type: 2}
       propertyPath: m_LocalPosition.y
